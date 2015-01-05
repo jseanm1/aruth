@@ -11,3 +11,8 @@ POST	/sample/post				controllers.SampleController.post()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+# user data input handle for disambiguation attempts
+GET     /tryWordSenseDisambiguation                       controllers.SampleController.tryWordSenseDisambiguation()
+GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)

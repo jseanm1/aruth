@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import managers.SampleManager;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.*;
 
 public class SampleController extends Controller{
 
@@ -19,8 +20,8 @@ public class SampleController extends Controller{
 	
 	public static Result post() {
 		/*
-		 * At the moment this method just accept the value of attribute 'name' in the json object
-		 * passed and search the WordNet for a noun and return the IndexWord as a string
+		 * At the moment this method just accepts the value of attribute 'name' in the json object
+		 * passed and searches the WordNet for a noun and return the IndexWord as a string
 		 */
 		JsonNode json = request().body().asJson();
 		String word;
@@ -40,4 +41,22 @@ public class SampleController extends Controller{
 		
 		return ok(s);
 	}
+	
+	public static Result tryWordSenseDisambiguation() {
+		// render the view to get user inputs from the browser
+        return   ok(userInputForDisambiguate.render());
+    }
+	
+	public static Result disambiguate(String context,String word) {
+		// might have errors. just ignore them. refresh and run. it is an eclipse bug
+		 
+		// business code goes here ....
+		
+		// fetch the answer here
+		
+		// return the answer 
+		
+		// dummy return (input passed as result)
+        return   ok(senseResponse.render(context,word));
+    }
 }
