@@ -8,4 +8,8 @@ package algorithms;
 
 public class SimplifiedLeskV1 {
 
+	public String getNounSense () {
+		
+		return "method not implemented yet";
+	}
 }

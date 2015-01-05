@@ -18,11 +18,13 @@ public class SampleController extends Controller{
 		return ok("responding to get");
 	}
 	
+	/*
+	 * /sample/post/
+	 * At the moment this method just accept the value of attribute 'name' in the json object
+	 * passed and search the WordNet for a noun and return the IndexWord as a string
+	 */
 	public static Result post() {
-		/*
-		 * At the moment this method just accepts the value of attribute 'name' in the json object
-		 * passed and searches the WordNet for a noun and return the IndexWord as a string
-		 */
+
 		JsonNode json = request().body().asJson();
 		String word;
 		String s;
@@ -33,9 +35,9 @@ public class SampleController extends Controller{
     	
     	word = json.findPath("name").textValue();
     	
-    	 if(word == null) {
+    	if(word == null) {
     		 return badRequest("parameter 'name' missing");
-    	 }
+    	}
     	 
 		s = new SampleManager().getNoun(word);
 		
