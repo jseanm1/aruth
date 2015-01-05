@@ -8,6 +8,8 @@ package managers;
 import java.util.ArrayList;
 import java.util.List;
 
+import algorithms.SimplifiedLeskV1;
+
 import dao.WordNetReader;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.Synset;
@@ -45,7 +47,7 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		
-		sense = getSenseByLesk(glosses, context);
+		sense = new SimplifiedLeskV1().getNounSense(glosses, context);
 		
 		return "method not implemented yet";
 	}
@@ -79,13 +81,4 @@ public class WSDManager {
 		return glosses;
 	}
 	
-	/*
-	 * Actual implementation of the Simplified Lesk algorithm
-	 * Input glosses and the context
-	 * Output relevant sense
-	 */
-	private String getSenseByLesk(List<String> glosses, String context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

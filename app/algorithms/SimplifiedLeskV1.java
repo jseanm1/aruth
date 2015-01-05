@@ -6,9 +6,16 @@
  */
 package algorithms;
 
+import java.util.List;
+
 public class SimplifiedLeskV1 {
 
-	public String getNounSense () {
+	/*
+	 * Actual implementation of the Simplified Lesk algorithm
+	 * Input glosses and the context
+	 * Output relevant sense
+	 */
+	public String getNounSense (List<String> glosses, String context) {
 		
 		return "method not implemented yet";
 	}
