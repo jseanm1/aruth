@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import play.Logger;
+import play.Logger.ALogger;
+
 import algorithms.SimplifiedLeskV1;
 
 import dao.WordNetReader;
@@ -17,6 +20,7 @@ import net.sf.extjwnl.data.Synset;
 
 public class WSDManager {
 
+	private static final ALogger logger = Logger.of(WSDManager.class);
 	/*
 	 * Input strings 'context' and 'target'
 	 * Output the disambiguated sense of the target word
@@ -40,7 +44,7 @@ public class WSDManager {
 		
 		if (word == null) {
 			String error = "no match found for noun " + target;
-			System.out.println(error);
+			logger.warn(error);
 			return error;
 		} 
 		
@@ -51,8 +55,7 @@ public class WSDManager {
 			sense = glosses.get(senseIndex);
 			return sense;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getLocalizedMessage());
 			return null;
 		}
 		

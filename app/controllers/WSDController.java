@@ -10,10 +10,13 @@ import managers.WSDManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import play.Logger;
+import play.Logger.ALogger;
 import play.mvc.*;
 
 public class WSDController extends Controller {
 
+	private static final ALogger logger = Logger.of(WSDController.class);
 	/*
 	 * /disambiguate
 	 * This method will accept a json object which has two attributes 'context' and 'target'
@@ -29,6 +32,7 @@ public class WSDController extends Controller {
 		JsonNode json = request().body().asJson();
 		
 		if(json == null) {
+			logger.warn("bad request : no json data");
     		return badRequest("no json data");
     	} 
 		
@@ -36,9 +40,11 @@ public class WSDController extends Controller {
 		target = json.findPath("target").asText();
 		
 		if (context == null || target == null) {
+			logger.warn("bad request: one or more parameters missing");
 			return badRequest("one or more parameters missing");
 		}
 		
+		logger.info("disambiguating target: " + target + " for context: " + context);
 		sense = wsdManager.getSense(context, target);
 		
 		return ok(sense);
