@@ -3,6 +3,9 @@
  */
 package controllers;
 
+import java.io.FileNotFoundException;
+
+import net.sf.extjwnl.JWNLException;
 import managers.WSDManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -17,7 +20,7 @@ public class WSDController extends Controller {
 	 * The attribute values will be passed to the WSDManager and the disambiguated sense will
 	 * be returned
 	 */
-	public static Result disambiguate() {
+	public static Result disambiguate() throws FileNotFoundException, JWNLException {
 		String context;
 		String target;
 		String sense;
@@ -36,8 +39,8 @@ public class WSDController extends Controller {
 			return badRequest("one or more parameters missing");
 		}
 		
+		sense = wsdManager.getSense(context, target);
 		
-		
-		return ok("method not yet implemented");
+		return ok(sense);
 	}
 }

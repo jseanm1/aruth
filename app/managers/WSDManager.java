@@ -5,6 +5,7 @@
  */
 package managers;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +23,6 @@ public class WSDManager {
 	 * Implemented only for the noun disambiguation currently
 	 */
 	public String getSense (String context, String target) {
-		context = context.toLowerCase();
-		target = target.toLowerCase();
-		
 		String sense = getNounSense(context, target);
 		
 		return sense;
@@ -38,6 +36,7 @@ public class WSDManager {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses;
 		String sense;
+		int senseIndex;
 		
 		if (word == null) {
 			String error = "no match found for noun " + target;
@@ -47,9 +46,17 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		
-		sense = new SimplifiedLeskV1().getNounSense(glosses, context);
+		try {
+			senseIndex = new SimplifiedLeskV1().getNounSense(glosses, context, target);
+			sense = glosses.get(senseIndex);
+			return sense;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 		
-		return "method not implemented yet";
+		
 	}
 	
 	private String getVerbSense () {
@@ -76,8 +83,9 @@ public class WSDManager {
 		List <String> glosses = new ArrayList<>();
 		
 		for (Synset syn : synset) {
-			glosses.add(syn.getGloss().toLowerCase());
+			glosses.add(syn.getGloss());
 		}
+		
 		return glosses;
 	}
 	

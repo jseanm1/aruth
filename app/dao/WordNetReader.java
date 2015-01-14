@@ -27,8 +27,7 @@ public class WordNetReader {
 		IndexWord word = null;
 		
 		try {
-			word = dictionary.getIndexWord(POS.NOUN, noun);
-			System.out.println("word done");
+			word = dictionary.getIndexWord(POS.NOUN, noun);	
 		} catch (JWNLException e) {
 			System.out.println("app.dao.WordNetReader.getNounAsIndexWord() : JWNLException");
 		}
@@ -45,9 +44,7 @@ public class WordNetReader {
 		
 		try {
 			inputStream = new FileInputStream(WORDNETPATH);
-			System.out.println("input stream done");
 			dictionary = Dictionary.getInstance(inputStream);
-			System.out.println("dictionary done");
 		} catch (FileNotFoundException e) {
 			System.out.println("app.dao.WordNetReader.getDictionary() : FileNotFoundException");
 		} catch (JWNLException e) {

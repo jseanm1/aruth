@@ -17,5 +17,5 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 
 # user data input handle for disambiguation attempts
-GET     /tryWordSenseDisambiguation                       controllers.SampleController.tryWordSenseDisambiguation()
+GET     /tryWordSenseDisambiguation	controllers.SampleController.tryWordSenseDisambiguation()
 GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)
