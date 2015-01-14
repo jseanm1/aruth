@@ -27,7 +27,8 @@ public class WSDManager {
 	 * Implemented only for the noun disambiguation currently
 	 */
 	public String getSense (String context, String target) {
-		String sense = getNounSense(context, target);
+		String gloss = getNounSense(context, target);
+		String sense=getSenseOfAGloss(gloss); 
 		
 		return sense;
 	}
@@ -92,4 +93,25 @@ public class WSDManager {
 		return glosses;
 	}
 	
+	private String[] devideGloss(String gloss)
+	{
+		String[] string=gloss.split("\\|");
+		return string;
+		
+	}
+	
+	private String getSenseOfAGloss(String givenGloss)
+	{
+		String[] gloss=devideGloss(givenGloss);
+		String sense=gloss[0];
+		return sense;
+		
+	}
+	
+	private String getExamplesOfAGloss(String givenGloss)
+	{
+		String[] gloss=devideGloss(givenGloss);
+		String examples=gloss[1];
+		return examples;
+	} 
 }
