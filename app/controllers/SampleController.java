@@ -1,11 +1,14 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode; 
 
 import managers.SampleManager;
+ 
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.*;
+import play.libs.Json;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class SampleController extends Controller{
 
@@ -60,5 +63,30 @@ public class SampleController extends Controller{
 		
 		// dummy return (input passed as result)
         return   ok(senseResponse.render(context,word));
+    }
+	
+	public static Result disambiguatePost() {
+		// Json will be passed to this method.
+		
+		JsonNode json = request().body().asJson();
+		 
+		if(json == null) { 
+    		return badRequest("no json data");
+    	}  
+		
+		String context = json.findPath("context").textValue();;
+		String word = json.findPath("target").textValue();;
+		// business code goes here ....
+		
+		// fetch the answer here
+		
+		// return the answer 
+		ObjectNode result = Json.newObject(); 
+		result.put("sense","correct_sense_gose_here"); 
+		 
+		//return   ok(senseResponse.render(context,word));
+		//return  ok("<h1>Hello World!</h1>").as("text/html");
+		//return  ok(Json.toJson("Vidudaya"));  //https://www.playframework.com/documentation/2.3.x/JavaJsonActions
+		return ok(result);
     }
 }
