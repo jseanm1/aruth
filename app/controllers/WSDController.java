@@ -9,9 +9,11 @@ import net.sf.extjwnl.JWNLException;
 import managers.WSDManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import play.Logger;
 import play.Logger.ALogger;
+import play.libs.Json;
 import play.mvc.*;
 
 public class WSDController extends Controller {
@@ -47,6 +49,9 @@ public class WSDController extends Controller {
 		logger.info("disambiguating target: " + target + " for context: " + context);
 		sense = wsdManager.getSense(context, target);
 		
-		return ok(sense);
+		ObjectNode result = Json.newObject(); 
+		result.put("sense",sense); 
+		
+		return ok(result);
 	}
 }
