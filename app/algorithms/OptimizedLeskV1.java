@@ -14,12 +14,15 @@ import utils.LeskPreprocessor;
 public class OptimizedLeskV1 {
 
 	/*
-	 * Actual implementation of the Simplified Lesk algorithm Input glosses and
-	 * the context Output relevant sense
+	 * Actual implementation of the Simplified Lesk algorithm 
+	 * Input glosses and the context 
+	 * Output relevant sense
 	 */
 
 	private List<String> pContext;
 	private List<String> pGlosses;
+	private List<String> parentGlosses;
+	private List<String> childGlosses;
 	private int size;
 	private static final float A = 0.5f;
 
@@ -35,26 +38,32 @@ public class OptimizedLeskV1 {
 		
 		size = pGlosses.size();
 
+		// same as Simplified Lesk V1.0
 		float primaryCount[] = getPrimaryCount();
 		
+		// new overlap count (secondary) for optimization
 		float secondaryCount[] = getSecondaryCount();	
 		
 		float finalCount[] = new float[size];
 		
+		// Optimization happens here
 		for (int i=0; i<size; i++) {
 			finalCount[i] = primaryCount[i] + A * secondaryCount[i];
 		}
 		
+		// find the optimized solution
 		for (int i=0; i<size; i++) {
 			if (finalCount[i]>maxvalue) {
 				maxvalue = finalCount[i];
 				maxIndex = i;
 			}
 		}
+		
 		return maxIndex;
 	}
 	
 	private float[] getPrimaryCount () {
+		// Same implementation from SimplifiedLeskV1
 		
 		float primaryCount[] = new float[size];
 		
@@ -74,7 +83,10 @@ public class OptimizedLeskV1 {
 	}
 	
 	private float[] getSecondaryCount() {
-		// TODO Auto-generated method stub
-		return null;
+		// get parent and children senses and get the secondary overlapping count
+		
+		float secondaryCount[] = new float[size];
+		
+		return secondaryCount;
 	}
 }
