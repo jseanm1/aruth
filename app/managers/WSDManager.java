@@ -75,7 +75,7 @@ public class WSDManager {
 		List <String> glosses, parentGlosses, childGlosses;
 		String sense;
 		int senseIndex;
-		
+ 
 		if (word == null) {
 			String error = "no match found for noun " + target;
 			logger.warn(error);
@@ -84,7 +84,7 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		parentGlosses = getParentGlosses(word);
-		
+ 
 		return "error";
 	}
 	

@@ -9,26 +9,41 @@
 		 	
 	</head>
 	<body> 
-		<div class="high">
-			<p>Word Sense Disambiguation.....</p>
-		</div>
-		
-		<div class="high_">
-			<table>
-				<tr>
-					<td><strong><label for="context">Context :</label></strong></td>
-					<td><textarea id ="context" name="text" rows="4" cols="50"></textarea></td>
-				</tr>
-				<tr>
-					<td><strong><label for="target">Target Word :</label></strong></td>
-					<td><input type="text" id="target" name="target" value="" /></td>
-				</tr> 
-				<tr>
-					<td></td>
-					<td><button class="submitButtonPosition" onClick="submitInput()">Submit</button></td>
-				</tr>
-			</table>
-		</div>
+	
+	
+		<div id = "container">
+			<div id="inputBox" class="input-box">
+				<table>
+					<tr>
+						<td colspan = "2">
+							<div id="aruth-logo">
+								<h1><a href="http://babelfy.org/" class="center-logo">Aruth</a></h1>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan = "2">
+							<div class="text-wrapper">
+											<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
+							</div>
+						</td>
+					</tr> 
+					<tr> 
+						<td colspan="1">
+							<div class="text-wrapper">
+											<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
+							</div>
+						</td>
+						<td colspan="1">
+							<div class="submit-wrapper">
+									<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput()">Search</button>
+							</div> 
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div> 
+		 
 		<div id="result">
 			<p></p>
 		</div>

@@ -19,3 +19,65 @@ body {
 	float : right;	
 }
  
+.input-word{
+			background-color: #EEE;
+			border-radius: 8px;
+			border: solid 1px #EEE;
+			margin-bottom: 15px;
+			width: 100% !important;
+			height: 120px;
+}
+.target-word{
+			background-color: #EEE;
+			border-radius: 8px;
+			border: solid 1px #EEE;
+			width: 50% !important;
+			margin-left : 5%;
+			height: 54px;
+}
+		
+.submit-wrapper BUTTON{
+			height: 54px;
+			width: 80%;
+			float: right;
+			/*
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0; */
+			text-transform: uppercase;
+}
+.input-box{
+			margin-top: 10%;
+			margin-left : 10%;
+			margin-right: 10%;
+			//background-color : yellow;
+}
+.input-box table{
+			width : 100%;
+}
+.text-wrapper{
+			margin-left : 10%;
+}
+		
+#aruth-logo A{
+			text-indent: -999px;
+			overflow: hidden;
+			width: 400px;
+			height: 150px;
+			display: block;
+			background: url('../images/aruth-logo.png');
+			background-image: url('../images/aruth-logo.png');
+			background-repeat: no-repeat;
+			background-size: contain;
+			max-width: 100%;
+			margin-left : 10%;
+}
+		
+.search-btn{
+			border-radius : 10px;
+			background-color : #13a89e;
+			border-color : transparent;
+			color : white;
+}
+#mySubmit:hover{ 
+			background-color : #088A85; 
+}
