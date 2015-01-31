@@ -81,12 +81,17 @@ body {
 			max-width: 100%;
 			margin-left : 10%;
 }
-
+ 
+#aruth-logo A:hover{ 
+			background: url('../images/aruth-logo-glow.png');
+			background-image: url('../images/aruth-logo-glow.png'); 
+}	
+ 
 #uom-logo{
 	border-left: solid 1px #DFDFDF;	
 	margin-left: 90%;
   	width: 100px;
-  	  position: absolute;
+  	position: absolute;
 }
 #uom-logo A{
 			text-indent: -999px;
@@ -120,7 +125,8 @@ body {
 			background-size: contain;			
 			margin-left : 10%; 
 			display: block;  			
-}		
+}	
+
 
 #cse-logo h1{
 	padding-top: 25%;
@@ -137,6 +143,14 @@ body {
 
 #super-container{ 
 	height : 100%; 
+	width : 100%;
+	/* background-image: url('../images/alph.png')  ; */
+	/* background-repeat: no-repeat; */
+	/* background-size: contain; */	
+	/* -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+ 	background-size: cover; */
 }
 
 * {
@@ -154,11 +168,11 @@ html, body {
  
 #header{
 	height : 15%;
-	background-color :yellow;
+	background-color :transparent;
 }
 
 #footer {
     height: 15%;  
-    background-color :yellow; 
+    background-color :transparent; 
     postition : relative;
 }
