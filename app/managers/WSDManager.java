@@ -32,11 +32,7 @@ public class WSDManager {
 	public String getSense (String context, String target) {
 		String gloss = getNounSenseUsingSLV1(context, target);
 		String sense = getSenseOfAGloss(gloss);
-<<<<<<< HEAD
-				
-=======
 		//getNounSensesUsingOLV1(context, target);
->>>>>>> 972ef1d5eda9fea1ce780ec4f30f214d45b40d99
 		return sense;
 	}
 	
