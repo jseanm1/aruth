@@ -28,6 +28,7 @@ body {
 			margin-bottom: 15px;
 			width: 100% !important;
 			height: 120px;
+			font-size: x-large;
 }
 .target-word{
 			background-color: #EEE;
@@ -35,7 +36,7 @@ body {
 			border: solid 1px #EEE;
 			width: 50% !important;
 			margin-left : 5%;
-			height: 54px;
+			height: 54px; 
 }
 .result-sense{
 			background-color: #EEE;
@@ -45,6 +46,7 @@ body {
 			width: 100% !important;
 			height: 80px;
 			display: none;
+			font-size: x-large;
 }		
 .submit-wrapper BUTTON{
 			height: 54px;
