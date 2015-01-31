@@ -3,7 +3,7 @@ function submitInput(){
 	//get the user input data from the view using jQuery
 	var context = $("#context").val();
 	var word = $("#target").val();
-	 
+	$( "#result" ).show(); 
 	// we use ajax to send a post request to back-end and send a json response to front-end
 	// https://www.airpair.com/js/jquery-ajax-post-tutorial
 	
@@ -27,7 +27,8 @@ function submitInput(){
 						//$('#result').html( data ); 
 			 			var sense = data["sense"];
 			 			//alert(sense);
-			 			$('#result').empty().append( "<p>The correct sense :"+ sense +"</p>" ); 
+			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
+			 			$('#result').val( ""+ sense +"" ); 
 				   } 
 		// error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
 		 
