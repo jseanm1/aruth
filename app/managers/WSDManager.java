@@ -23,6 +23,7 @@ import net.sf.extjwnl.data.list.PointerTargetNodeList;
 public class WSDManager {
 
 	private static final ALogger logger = Logger.of(WSDManager.class);
+	
 	/*
 	 * Input strings 'context' and 'target'
 	 * Output the disambiguated sense of the target word
@@ -31,7 +32,11 @@ public class WSDManager {
 	public String getSense (String context, String target) {
 		String gloss = getNounSenseUsingSLV1(context, target);
 		String sense = getSenseOfAGloss(gloss);
+<<<<<<< HEAD
 				
+=======
+		//getNounSensesUsingOLV1(context, target);
+>>>>>>> 972ef1d5eda9fea1ce780ec4f30f214d45b40d99
 		return sense;
 	}
 	
@@ -74,7 +79,7 @@ public class WSDManager {
 		List <String> glosses, parentGlosses, childGlosses;
 		String sense;
 		int senseIndex;
-		
+ 
 		if (word == null) {
 			String error = "no match found for noun " + target;
 			logger.warn(error);
@@ -83,7 +88,7 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		parentGlosses = getParentGlosses(word);
-		
+ 
 		return "error";
 	}
 	

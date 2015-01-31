@@ -8,13 +8,17 @@ package dao;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import play.Logger;
+import play.Logger.ALogger;
+
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.POS;
 import net.sf.extjwnl.dictionary.Dictionary;
 
 public class WordNetReader {
-
+	
+	private static final ALogger logger = Logger.of(WordNetReader.class);
 	private final static String WORDNETPATH = "conf/file_properties.xml";
 
 	/*
@@ -23,13 +27,15 @@ public class WordNetReader {
 	 * Will return null if no IndexWord is found
 	 */
 	public static IndexWord getNounAsIndexWord (String noun) {
+		logger.info("Request to retrieve " + noun + " from Sinhala WordNet");
+		
 		Dictionary dictionary = getDictionary();
 		IndexWord word = null;
 		
 		try {
 			word = dictionary.getIndexWord(POS.NOUN, noun);	
 		} catch (JWNLException e) {
-			System.out.println("app.dao.WordNetReader.getNounAsIndexWord() : JWNLException");
+			logger.error(e.getLocalizedMessage());
 		}
 		
 		return word;
@@ -46,9 +52,9 @@ public class WordNetReader {
 			inputStream = new FileInputStream(WORDNETPATH);
 			dictionary = Dictionary.getInstance(inputStream);
 		} catch (FileNotFoundException e) {
-			System.out.println("app.dao.WordNetReader.getDictionary() : FileNotFoundException");
+			logger.error(e.getLocalizedMessage());
 		} catch (JWNLException e) {
-			System.out.println("app.dao.WordNetReader.getDictionary() : JWNLException");
+			logger.error(e.getLocalizedMessage());
 		}
 		
 		return dictionary;
