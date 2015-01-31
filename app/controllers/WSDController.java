@@ -4,6 +4,7 @@
 package controllers;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 import net.sf.extjwnl.JWNLException;
 import managers.WSDManager;
@@ -54,4 +55,5 @@ public class WSDController extends Controller {
 		
 		return ok(result);
 	}
+	
 }

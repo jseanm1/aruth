@@ -23,6 +23,7 @@ import net.sf.extjwnl.data.list.PointerTargetNodeList;
 public class WSDManager {
 
 	private static final ALogger logger = Logger.of(WSDManager.class);
+	
 	/*
 	 * Input strings 'context' and 'target'
 	 * Output the disambiguated sense of the target word
@@ -31,7 +32,7 @@ public class WSDManager {
 	public String getSense (String context, String target) {
 		String gloss = getNounSenseUsingSLV1(context, target);
 		String sense = getSenseOfAGloss(gloss);
-				
+		//getNounSensesUsingOLV1(context, target);
 		return sense;
 	}
 	
