@@ -9,45 +9,58 @@
 		 	
 	</head>
 	<body> 
-	
-	
-		<div id = "container">
-			<div id="inputBox" class="input-box">
-				<table>
-					<tr>
-						<td colspan = "2">
-							<div id="aruth-logo">
-								<h1><a href="http://babelfy.org/" class="center-logo">Aruth</a></h1>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td colspan = "2">
-							<div class="text-wrapper">
-											<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
-							</div>
-						</td>
-					</tr> 
-					<tr> 
-						<td colspan="1">
-							<div class="text-wrapper">
-											<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
-							</div>
-						</td>
-						<td colspan="1">
-							<div class="submit-wrapper">
-									<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput()">Search</button>
-							</div> 
-						</td>
-					</tr>
-				</table>
+		
+		<div id = "super-container">
+			<div id="header"></div>  
+			<div id = "container">
+				<div id="inputBox" class="input-box">
+					<table>
+						<tr>
+							<td colspan = "2">
+								<div id="aruth-logo">
+									<h1><a href="http://babelfy.org/" class="center-logo">Aruth</a></h1>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = "2">
+								<div class="text-wrapper">
+												<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
+								</div>
+							</td>
+						</tr> 
+						<tr> 
+							<td colspan="1">
+								<div class="text-wrapper">
+												<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
+								</div>
+							</td>
+							<td colspan="1">
+								<div class="submit-wrapper">
+										<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput()">Search</button>
+								</div> 
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="text-wrapper">
+												<textarea maxlength="5000" id="result" name="text" class="result-sense" placeholder="sense goes here....."></textarea>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+			</div>  
+			<div id="footer" >
+				<div id="uom-logo" >
+									<h1><a href="http://www.mrt.ac.lk/" class="center-logo">Aruth</a></h1>
+				</div>
+				<div id="cse-logo" >
+									<h1><a href="http://www.cse.mrt.ac.lk/" class="center-logo">Aruth</a></h1>
+				</div>
 			</div>
-		</div> 
-		 
-		<div id="result">
-			<p></p>
 		</div>
-	
 	</body>
 
 </html>

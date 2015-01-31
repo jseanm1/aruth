@@ -15,6 +15,8 @@ body {
 	 
 }
 
+
+
 .submitButtonPosition{
 	float : right;	
 }
@@ -35,7 +37,15 @@ body {
 			margin-left : 5%;
 			height: 54px;
 }
-		
+.result-sense{
+			background-color: #EEE;
+			border-radius: 8px;
+			border: solid 1px #EEE;
+			margin-bottom: 15px;
+			width: 100% !important;
+			height: 80px;
+			display: none;
+}		
 .submit-wrapper BUTTON{
 			height: 54px;
 			width: 80%;
@@ -46,7 +56,7 @@ body {
 			text-transform: uppercase;
 }
 .input-box{
-			margin-top: 10%;
+			//margin-top: 10%;
 			margin-left : 10%;
 			margin-right: 10%;
 			//background-color : yellow;
@@ -71,7 +81,50 @@ body {
 			max-width: 100%;
 			margin-left : 10%;
 }
+
+#uom-logo{
+	border-left: solid 1px #DFDFDF;	
+	margin-left: 90%;
+  	width: 100px;
+  	  position: absolute;
+}
+#uom-logo A{
+			text-indent: -999px;
+			overflow: hidden;
+			width: 100px;
+			height: 100px;
+			display: block;
+			background: url('../images/uom-logo.png');
+			background-image: url('../images/uom-logo.png');
+			background-repeat: no-repeat;
+			background-size: contain;			
+			margin-left : 10%; 			
+}
+
+#cse-logo{
+	border-left: solid 1px #DFDFDF;	
+	margin-left: 80%;
+  	width: 100px;  
+  	position: absolute;
+}
 		
+#cse-logo A{
+			text-indent: -999px;
+			overflow: hidden;
+			width: 100px;
+			min-height: 75px; 
+			display: block;
+			background: url('../images/cse-logo.jpg');
+			background-image: url('../images/cse-logo.jpg');
+			background-repeat: no-repeat;
+			background-size: contain;			
+			margin-left : 10%; 
+			display: block;  			
+}		
+
+#cse-logo h1{
+	padding-top: 25%;
+}
 .search-btn{
 			border-radius : 10px;
 			background-color : #13a89e;
@@ -80,4 +133,32 @@ body {
 }
 #mySubmit:hover{ 
 			background-color : #088A85; 
+}
+
+#super-container{ 
+	height : 100%; 
+}
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#container{ 
+	min-height : 65%;
+	height: auto;
+	margin: auto;
+}
+ 
+#header{
+	height : 15%;
+	background-color :yellow;
+}
+
+#footer {
+    height: 15%;  
+    background-color :yellow; 
+    postition : relative;
 }
