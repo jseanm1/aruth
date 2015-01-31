@@ -16,7 +16,9 @@ import algorithms.SimplifiedLeskV1;
 
 import dao.WordNetReader;
 import net.sf.extjwnl.data.IndexWord;
+import net.sf.extjwnl.data.PointerUtils;
 import net.sf.extjwnl.data.Synset;
+import net.sf.extjwnl.data.list.PointerTargetNodeList;
 
 public class WSDManager {
 
@@ -27,17 +29,18 @@ public class WSDManager {
 	 * Implemented only for the noun disambiguation currently
 	 */
 	public String getSense (String context, String target) {
-		String gloss = getNounSense(context, target);
-		String sense=getSenseOfAGloss(gloss); 
-		
+		String gloss = getNounSenseUsingSLV1(context, target);
+		String sense = getSenseOfAGloss(gloss);
+				
 		return sense;
 	}
 	
 	/*
 	 * Input strings 'context' and 'target'
 	 * Output the disambiguated target word - a noun
+	 * Uses Simplified Lesk Algorithm Version 1.0
 	 */
-	private String getNounSense (String context, String target) {
+	private String getNounSenseUsingSLV1 (String context, String target) {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses;
 		String sense;
@@ -58,21 +61,45 @@ public class WSDManager {
 		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 			return null;
-		}
-		
-		
+		}		
 	}
 	
+	/*
+	 * Input strings 'context' and 'target'
+	 * Output the disambiguated target word - a noun
+	 * Uses Optimized Lesk Algorithm Version 1.0
+	 */	
+	private String getNounSensesUsingOLV1 (String context, String target) {
+		IndexWord word = WordNetReader.getNounAsIndexWord(target);
+		List <String> glosses, parentGlosses, childGlosses;
+		String sense;
+		int senseIndex;
+		
+		if (word == null) {
+			String error = "no match found for noun " + target;
+			logger.warn(error);
+			return error;
+		} 
+		
+		glosses = getGlosses(word);
+		parentGlosses = getParentGlosses(word);
+		
+		return "error";
+	}
+	
+	@SuppressWarnings("unused")
 	private String getVerbSense () {
 		
 		return "method not implemented yet";
 	}
 	
+	@SuppressWarnings("unused")
 	private String getAdjectiveSense () {
 		
 		return "method not implemented yet";
 	}
 	
+	@SuppressWarnings("unused")
 	private String getAdverbSense () {
 		
 		return "method not implemented yet";
@@ -91,6 +118,20 @@ public class WSDManager {
 		}
 		
 		return glosses;
+	}
+	
+	/*
+	 * returns a List of glosses of the senses of the parent of the Indexed word
+	 * note : glosses are converted into the lower case to be compared 
+	 */
+	private List<String> getParentGlosses(IndexWord word) {
+		List <Synset> synset = word.getSenses();
+		List <String> parentGlosses = new ArrayList<>();
+		
+		PointerTargetNodeList hypernyms = PointerUtils.getDirectHypernyms(synset.get(0));
+		
+		hypernyms.print();
+		return null;
 	}
 	
 	private String[] devideGloss(String gloss)
