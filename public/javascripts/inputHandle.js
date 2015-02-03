@@ -28,7 +28,7 @@ function submitInput(){
 			 			var sense = data["sense"];
 			 			//alert(sense);
 			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
-			 			$('#result').val( ""+ sense +"" ); 
+			 			$('#result-show').val( ""+ sense +"" ); 
 				   } 
 		// error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
 		 

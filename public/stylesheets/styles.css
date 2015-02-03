@@ -38,14 +38,17 @@ body {
 			margin-left : 5%;
 			height: 54px; 
 }
+#result{
+	display: none;	
+}
+
 .result-sense{
 			background-color: #EEE;
 			border-radius: 8px;
 			border: solid 1px #EEE;
 			margin-bottom: 15px;
 			width: 100% !important;
-			height: 80px;
-			display: none;
+			height: 80px;			
 			font-size: x-large;
 }		
 .submit-wrapper BUTTON{
@@ -68,6 +71,15 @@ body {
 }
 .text-wrapper{
 			margin-left : 10%;
+}
+.result-wrapper{
+			margin-left : 10%;
+			border-top: solid 1px #DFDFDF;	
+			padding-top:2%;
+}
+.result-topic{
+	padding: 0 0 1% 0 ;	
+	color:red;
 }
 		
 #aruth-logo A{
