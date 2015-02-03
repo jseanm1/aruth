@@ -11,28 +11,30 @@
 	<body> 
 		
 		<div id = "super-container">
-			<div id="header"></div>  
+			<div id="header">
+				@header()
+			</div>  
 			<div id = "container">
 				<div id="inputBox" class="input-box">
 					<table>
 						<tr>
 							<td colspan = "2">
 								<div id="aruth-logo">
-									<h1><a href="http://babelfy.org/" class="center-logo">Aruth</a></h1>
+									<h1><a href="" class="center-logo">Aruth</a></h1>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td colspan = "2">
 								<div class="text-wrapper">
-												<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
+										<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
 								</div>
 							</td>
 						</tr> 
 						<tr> 
 							<td colspan="1">
 								<div class="text-wrapper">
-												<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
+										<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
 								</div>
 							</td>
 							<td colspan="1">
@@ -43,8 +45,9 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<div class="text-wrapper">
-												<textarea maxlength="5000" id="result" name="text" class="result-sense" placeholder="sense goes here....."></textarea>
+								<div class="result-wrapper" id="result" >	
+										<p class = "result-topic">අදහස් කරන ලද අරුත</p>
+										<textarea maxlength="5000" name="text" id="result-show" class="result-sense" placeholder="sense goes here....."></textarea>
 								</div>
 							</td>
 						</tr>
@@ -53,6 +56,9 @@
 				
 			</div>  
 			<div id="footer" >
+				<div id="description">
+					<p>Aruth is a tool for Sinhala word sense disambiguation. This is a research project carried out by the <a href="http://www.cse.mrt.ac.lk/" class="description-link" >Computer Science and Engineering Department</a>  , <a href="http://www.mrt.ac.lk/" class="description-link" >University of Moratuwa</a> , Sri Lanka.</p>
+				</div>
 				<div id="uom-logo" >
 						<h1><a href="http://www.mrt.ac.lk/" class="center-logo">Aruth</a></h1>
 				</div>
