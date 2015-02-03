@@ -163,14 +163,17 @@ html, body {
 }
 
 #container{ 
-	min-height : 65%;
+	min-height : 70%;
 	height: auto;
 	margin: auto;
 }
  
 #header{
-	height : 15%;
+	margin : 0px 6% 0px 6%;
+	padding-right : 5%;
+	height : 10%;
 	background-color :transparent;
+	border-bottom: solid 1px #DFDFDF;	
 }
 
 #footer {
