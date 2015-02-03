@@ -107,6 +107,10 @@ body {
   	position: absolute;
   	text-align: center;
 }
+.description-link{
+	text-decoration: none;
+ 	color: #04B4AE;	
+}
  
 #description P{ 
   	height: 100px;  
