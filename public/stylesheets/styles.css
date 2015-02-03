@@ -62,7 +62,7 @@ body {
 }
 .input-box{
 			//margin-top: 10%;
-			margin-left : 10%;
+			//margin-left : 10%;
 			margin-right: 10%;
 			//background-color : yellow;
 }
@@ -100,7 +100,19 @@ body {
 			background: url('../images/aruth-logo-glow.png');
 			background-image: url('../images/aruth-logo-glow.png'); 
 }	
+#description{	
+	margin-left: 20%;
+  	width: 700px; 
+  	height: 100px; 
+  	position: absolute;
+  	text-align: center;
+}
  
+#description P{ 
+  	height: 100px;  
+  	vertical-align: middle;
+  	display: table-cell;
+}
 #uom-logo{
 	border-left: solid 1px #DFDFDF;	
 	margin-left: 90%;
