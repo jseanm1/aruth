@@ -45,7 +45,12 @@
 			$( "#container" ).load("/publications");
 		} else if (page == "home"){ 
 			$( "#container" ).load("/home");
+		} else if (page == "aboutUs"){ 
+			$( "#container" ).load("/aboutUs");
+		}  else if (page == "contactUs"){ 
+			$( "#container" ).load("/contactUs");
 		}
+		
 	}
 </script>
 
@@ -54,12 +59,12 @@
 	  <tr>
 	  	<td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn3" class="search-btn-header btn-header-hover">Contact Us</button>
+						<button type="submit" id="btn3" class="search-btn-header btn-header-hover" onClick="loadPage('contactUs');">Contact Us</button>
 				</div>
 		 </td>
 		 <td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn2" class="search-btn-header btn-header-hover">About Us</button>
+						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('aboutUs');">About Us</button>
 				</div>
 		 </td>
 		 <td>
