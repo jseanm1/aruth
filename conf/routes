@@ -27,3 +27,4 @@ POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
 
 GET     /publications               controllers.SampleController.publications()
 GET     /home              			 controllers.SampleController.home()
+GET     /aboutUs             			 controllers.SampleController.aboutUs ()
