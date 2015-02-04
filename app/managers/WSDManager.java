@@ -12,12 +12,14 @@ import java.util.List;
 import play.Logger;
 import play.Logger.ALogger;
 
+import algorithms.OptimizedLeskV1;
 import algorithms.SimplifiedLeskV1;
 
 import dao.WordNetReader;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.PointerUtils;
 import net.sf.extjwnl.data.Synset;
+import net.sf.extjwnl.data.list.PointerTargetNode;
 import net.sf.extjwnl.data.list.PointerTargetNodeList;
 
 public class WSDManager {
@@ -30,9 +32,10 @@ public class WSDManager {
 	 * Implemented only for the noun disambiguation currently
 	 */
 	public String getSense (String context, String target) {
-		String gloss = getNounSenseUsingSLV1(context, target);
+		//String gloss = getNounSenseUsingSLV1(context, target);
+		String gloss = getNounSensesUsingOLV1(context, target);
 		String sense = getSenseOfAGloss(gloss);
-		//getNounSensesUsingOLV1(context, target);
+		
 		return sense;
 	}
 	
@@ -84,8 +87,20 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		parentGlosses = getParentGlosses(word);
- 
-		return "error";
+		childGlosses = getChildGosses(word);
+		
+		try {
+			senseIndex = new OptimizedLeskV1().getNounSense(glosses, 
+															parentGlosses, 
+															childGlosses,
+															context, 
+															target);
+			sense = glosses.get(senseIndex);
+			return sense;
+		} catch (IOException e) {
+			logger.error(e.getLocalizedMessage());
+			return null;
+		}
 	}
 	
 	@SuppressWarnings("unused")
@@ -108,7 +123,6 @@ public class WSDManager {
 	
 	/*
 	 * returns a List of glosses for the senses of the IndexWord word
-	 * note : glosses are converted into the lower case to be compared
 	 */
 	private List<String> getGlosses(IndexWord word) {
 		List <Synset> synset = word.getSenses();
@@ -123,16 +137,49 @@ public class WSDManager {
 	
 	/*
 	 * returns a List of glosses of the senses of the parent of the Indexed word
-	 * note : glosses are converted into the lower case to be compared 
 	 */
 	private List<String> getParentGlosses(IndexWord word) {
 		List <Synset> synset = word.getSenses();
 		List <String> parentGlosses = new ArrayList<>();
+		PointerTargetNodeList hypernym;
 		
-		PointerTargetNodeList hypernyms = PointerUtils.getDirectHypernyms(synset.get(0));
+		for (Synset s : synset) {
+			hypernym = PointerUtils.getDirectHypernyms(s);
+			
+			if (hypernym.size() == 0) {
+				logger.info("No hypernyms for sense " + s.getGloss() + " in Sinhala WordNet");
+				parentGlosses.add("");
+			} else {
+				// only consider the immidiate synset
+				parentGlosses.add(hypernym.get(0).getSynset().getGloss());
+			}
+		}
 		
-		hypernyms.print();
-		return null;
+		return parentGlosses;		
+	}
+	
+	/*
+	 * returns a List of glosses of the senses of the child of the Indexed word
+	 * note : glosses are converted into the lower case to be compared 
+	 */
+	private List<String> getChildGosses(IndexWord word) {
+		List <Synset> synset = word.getSenses();
+		List <String> childGlosses = new ArrayList<>();
+		PointerTargetNodeList hyponym;
+		
+		for (Synset s : synset) {
+			hyponym = PointerUtils.getDirectHyponyms(s);
+			
+			if (hyponym.size() == 0) {
+				logger.info("No hyponyms for sense " + s.getGloss() + " in Sinhala WordNet");
+				childGlosses.add("");
+			} else {
+				// only consider the immidiate synset
+				childGlosses.add(hyponym.get(0).getSynset().getGloss());
+			}
+		}
+		
+		return childGlosses;		
 	}
 	
 	private String[] devideGloss(String gloss)

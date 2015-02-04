@@ -9,6 +9,8 @@ package algorithms;
 import java.io.IOException;
 import java.util.List;
 
+import play.Logger;
+
 import utils.LeskPreprocessor;
 
 public class OptimizedLeskV1 {
@@ -26,18 +28,29 @@ public class OptimizedLeskV1 {
 	private int size;
 	private static final float A = 0.5f;
 
-	public int getNounSense(List<String> glosses, String context, String target) throws IOException {
+	public int getNounSense(List<String> glosses, List<String> parentGlosses, List<String> childGlosses, 
+			String context, String target) throws IOException {
 		int maxIndex = 0;
 		float maxvalue = 0;
 		
 		// preprocess context
-		pContext = LeskPreprocessor.preprocessContext(context);
+		this.pContext = LeskPreprocessor.preprocessContext(context);
 
 		// preprocess glosses
-		pGlosses = LeskPreprocessor.preprocessGlosses(glosses);
+		this.pGlosses = LeskPreprocessor.preprocessGlosses(glosses);
 		
+		//preprocess parent glosses
+		this.parentGlosses = LeskPreprocessor.preprocessGlosses(parentGlosses);
+		
+		//preprocess child glosses
+		this.childGlosses = LeskPreprocessor.preprocessGlosses(childGlosses);
+
 		size = pGlosses.size();
 
+		if (size != parentGlosses.size() || size != childGlosses.size()) {
+			Logger.error("error! size mismatch");
+			return 0;
+		}
 		// same as Simplified Lesk V1.0
 		float primaryCount[] = getPrimaryCount();
 		
@@ -63,8 +76,7 @@ public class OptimizedLeskV1 {
 	}
 	
 	private float[] getPrimaryCount () {
-		// Same implementation from SimplifiedLeskV1
-		
+		// Same implementation from SimplifiedLeskV1		
 		float primaryCount[] = new float[size];
 		
 		for (int i = 0; i < size; i++) {
@@ -83,9 +95,27 @@ public class OptimizedLeskV1 {
 	}
 	
 	private float[] getSecondaryCount() {
-		// get parent and children senses and get the secondary overlapping count
-		
+		// get parent and children senses and get the secondary overlapping count		
 		float secondaryCount[] = new float[size];
+		
+		for (int i = 0; i < size; i++) {
+			secondaryCount[i] = 0;
+		}
+
+		for (int i = 0; i < size; i++) {
+			for (String word : parentGlosses.get(i).split(" ")) {
+				if (pContext.contains(word)) {
+					secondaryCount[i]++;
+				}
+			}
+			
+			for (String word : childGlosses.get(i).split(" ")) {
+				if (pContext.contains(word)) {
+					secondaryCount[i]++;
+				}
+			}
+		}
+
 		
 		return secondaryCount;
 	}
