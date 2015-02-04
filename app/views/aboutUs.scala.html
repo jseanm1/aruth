@@ -21,12 +21,12 @@
 	background-color: red;
 }
 .picture{
-	width : 20%;
+	width : 10%;
 	height : 150px;
 	background-color:green;  
 }
 .details{
-	width : 70%;
+	width : 35%;
 	height : 150px;
 	background-color:green; 
 }
@@ -34,48 +34,152 @@
 	width:100%;
 	height:100%;
 	background-color:green; 
+	border-radius:50% 50% 50% 50%;
 }
 .pro-pic{
 	width:100%;
 	height:100%;
+	border-radius:50% 50% 50% 50%;
 }
 .details-div{
 	width:100%;
-	height:80%;
+	height:75%;
 	background-color:pink; 
 }
 .links-div{
 	width:100%;
-	height:20%;
+	height:25%;
 	background-color:black; 
 }
 .pro-name{
-	font-size: 30px;
+	font-size: 20px;
+	padding-left: 5px;
 }
 .pro-mail{
+	font-size: 15px;
+	margin-top:5px;
+	margin-left:1px;
+	height:30px;
+	padding-left:5px;
+}
+.pro-name-sup{
+	font-size: 30px;
+	padding-left: 5px;
+}
+.pro-mail-sup{
 	font-size: 20px;
-	margin-left:5px;
+	margin-top:5px;
+	margin-left:1px;
+	height:30px;
+	padding-left:5px;
+}
+.pro-details-sup{
+	padding-left:5px;
+	font-size: 20px;
 }
 .developer{
-	font-size: 20px;
+	font-size: 15px;
+}
+.pro-details{
+	padding-left:5px;
+	font-size: 15px;
+}
+.box-social{
+			width : 30px;
+			height : 30px;
+}
+.social-pic{
+	height:100% !important;
+}
+.social-icons{
+	float : right;
 }
 </style>
 
 <div class = "about-us-div">
+<div class="member-div">
+		<table class="about-us-table">
+			<tr>
+				<td class="picture">
+					<div class="picture-div">
+						<img class = "pro-pic" src="@routes.Assets.at("images/profilePhotos/p_1.png")" alt="" />
+					</div>
+				</td> 
+				<td class="details">
+					<div class="details-div">
+						<div><span class="pro-name-sup">Dr. Daya Chinthana Wimalasuriya - <span class="developer">Supervisor</span></span></div>
+						<div><span class="pro-details-sup">Lecturer</span></div>
+						<div><span class="pro-details-sup">Department of Computer Science and Engineering</span></div>
+						<div><span class="pro-details-sup">University of Moratuwa</span></div>
+						<div style="margin-top:5px;"><span class="pro-mail-sup">chinthana@@cse.mrt.ac.lk</span></div>
+					</div>
+					<div class="links-div">
+						<table>
+							<tr>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/google.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/linkedin.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/twitter.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
+							</tr>
+						</table>
+					</div>
+				</td>  
+			</tr>
+		</table>
+	</div>
+	<div class = "separator"></div>
 	<div class="member-div">
 		<table class="about-us-table">
 			<tr>
 				<td class="picture">
 					<div class="picture-div">
-						<img class = "pro-pic" src="@routes.Assets.at("images/albumPaperOne/p_1.jpg")" alt="" />
+						<img class = "pro-pic" src="@routes.Assets.at("images/profilePhotos/p_1.png")" alt="" />
+					</div>
+				</td> 
+				<td class="details">
+					<div class="details-div">
+						<div><span class="pro-name">Janindu Arukgoda - <span class="developer">Developer</span></span></div>
+						<div><span class="pro-details">Undergraduate</span></div>
+						<div><span class="pro-details">Department of Computer Science and Engineering</span></div>
+						<div><span class="pro-details">University of Moratuwa</span></div>
+						<div style="margin-top:5px;"><span class="pro-mail">janindu.10@@cse.mrt.ac.lk</span></div>
+					</div>
+					<div class="links-div">
+						<table class="social-icons">
+							<tr>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/google.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/linkedin.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/twitter.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
+							</tr>
+						</table>
+					</div>
+				</td> 
+				<td class="picture">
+					<div class="picture-div">
+						<img class = "pro-pic" src="@routes.Assets.at("images/profilePhotos/p_1.png")" alt="" />
 					</div>
 				</td> 
 				<td class="details">
 					<div class="details-div">
 						<div><span class="pro-name">Vidudaya Neranjan Bandara - <span class="developer">Developer</span></span></div>
-						<div><span class="pro-mail">vidudaya.10@@cse.mrt.ac.lk</span></div>
+						<div><span class="pro-details">Undergraduate</span></div>
+						<div><span class="pro-details">Department of Computer Science and Engineering</span></div>
+						<div><span class="pro-details">University of Moratuwa</span></div>
+						<div style="margin-top:5px;"><span class="pro-mail">vidudaya.10@@cse.mrt.ac.lk</span></div>
 					</div>
 					<div class="links-div">
+						<table class="social-icons">
+							<tr>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/google.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/linkedin.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/twitter.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
+							</tr>
+						</table>
 					</div>
 				</td> 
 			</tr>
@@ -85,36 +189,59 @@
 	<div class="member-div">
 		<table class="about-us-table">
 			<tr>
-				<td></td>
-				<td></td>
+				<td class="picture">
+					<div class="picture-div">
+						<img class = "pro-pic" src="@routes.Assets.at("images/profilePhotos/p_1.png")" alt="" />
+					</div>
+				</td> 
+				<td class="details">
+					<div class="details-div">
+						<div><span class="pro-name">Samiththa Bashani - <span class="developer">Developer</span></span></div>
+						<div><span class="pro-details">Undergraduate</span></div>
+						<div><span class="pro-details">Department of Computer Science and Engineering</span></div>
+						<div><span class="pro-details">University of Moratuwa</span></div>
+						<div style="margin-top:5px;"><span class="pro-mail">samiththa.10@@cse.mrt.ac.lk</span></div>
+					</div>
+					<div class="links-div">
+						<table class="social-icons">
+							<tr>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/google.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/linkedin.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/twitter.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
+							</tr>
+						</table>
+					</div>
+				</td> 
+				<td class="picture">
+					<div class="picture-div">
+						<img class = "pro-pic" src="@routes.Assets.at("images/profilePhotos/p_1.png")" alt="" />
+					</div>
+				</td> 
+				<td class="details">
+					<div class="details-div">
+						<div><span class="pro-name">Vijayindu Gamage - <span class="developer">Developer</span></span></div>
+						<div><span class="pro-details">Undergraduate</span></div>
+						<div><span class="pro-details">Department of Computer Science and Engineering</span></div>
+						<div><span class="pro-details">University of Moratuwa</span></div>
+						<div style="margin-top:5px;"><span class="pro-mail">vidudaya.10@@cse.mrt.ac.lk</span></div>
+					</div>
+					<div class="links-div">
+						<table class="social-icons">
+							<tr>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/google.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/linkedin.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/twitter.png")" alt="" /></a></td>
+								<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
+							</tr>
+						</table>
+					</div>
+				</td> 
 			</tr>
 		</table>
-	</div>
+	</div> 
 	<div class = "separator"></div>
-	<div class="member-div">
-		<table class="about-us-table">
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-	</div>
-	<div class = "separator"></div>
-	<div class="member-div">
-		<table class="about-us-table">
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-	</div>
-	<div class = "separator"></div>
-	<div class="member-div">
-		<table class="about-us-table">
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-	</div>
+	 
 </div>

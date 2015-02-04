@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                          controllers.SampleController.tryWordSenseDisambiguation()
 
 # Sample paths. These paths SHOULD NOT be used for anything that will be deployed
 GET		/sample/get					controllers.SampleController.get()
@@ -27,4 +27,3 @@ POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
 
 GET     /publications               controllers.SampleController.publications()
 GET     /home              			 controllers.SampleController.home()
-GET     /aboutUs             			 controllers.SampleController.aboutUs ()

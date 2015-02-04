@@ -95,10 +95,6 @@ public class SampleController extends Controller{
     }
 	public static Result home(){
         return ok(views.html.home.render());
-    }
-	
 
-public static Result aboutUs(){
-        return ok(views.html.aboutUs.render());
-}
+    } 
 }
