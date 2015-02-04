@@ -38,6 +38,14 @@
 	}
 </style>
 
+<script>
+	function loadPage(page){ 
+		if (page == "publications"){ 
+			$( "#container" ).load("/publications");
+		} 
+	}
+</script>
+
 <div id = "header-div">
 	<table id = "header-table">
 	  <tr>
@@ -53,7 +61,7 @@
 		 </td>
 		 <td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn2" class="search-btn-header btn-header-hover">Publications</button>
+						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('publications');">Publications</button>
 				</div>
 		 </td>
 	     <td>

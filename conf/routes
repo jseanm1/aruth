@@ -23,3 +23,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /tryWordSenseDisambiguation	controllers.SampleController.tryWordSenseDisambiguation()
 GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)
 POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
+
+
+GET     /publications               controllers.SampleController.publications()

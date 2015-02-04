@@ -89,4 +89,8 @@ public class SampleController extends Controller{
 		//return  ok(Json.toJson("Vidudaya"));  //https://www.playframework.com/documentation/2.3.x/JavaJsonActions
 		return ok(result);
     }
+	
+	public static Result publications(){
+        return ok(views.html.publications.render());
+    }
 }
