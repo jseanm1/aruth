@@ -5,7 +5,7 @@
 	padding-top:5%;
 }
 .publications-description{
-	padding-top:5%;
+	padding-top:2%;
 	margin-top:auto;
 	margin-right:10%;
 }
@@ -17,6 +17,27 @@
 	padding-top:5%;
 	margin-right:10%;
 	text-align : center;
+}
+
+.publications-paper-two{
+	padding-top:2%;
+	margin-right:10%;
+}
+.publications-description-two{
+	padding-top:2%;
+	margin-top:auto;
+	margin-right:10%;
+}
+.album_two{
+	margin-right:10%;
+	padding-top:5%;
+	margin-right:10%;
+	text-align : center;
+}
+.separator{
+	padding-top:2%;
+	border-bottom: solid 1px #DFDFDF;	
+	padding-bottom:2%;
 }
 
 </style>
@@ -43,4 +64,29 @@
 	<div class="album_one">
 		@albumPaperOne()
 	</div>
+	
+	<div class = "separator"></div>
+	
+	<div class="publications-paper-two">
+		<span>J. Arukgoda, V. Bandara, S. Bashani, V. Gamage and D. Wimalasuriya, "Lesk Algorithm Optimization Techniquea for Sinhala" in 2014, Symposium on Language Technology for South Asia, Moratuwa, Sri Lanka, 2015, to be published.</span>
+	</div>
+	<div class= "publications-description-two">
+		<span>The task of identifying the implied sense of a polysemous word in a given context is called Word Sense Disambiguation.
+		 Even though there have been many efforts on word sense disambiguation for languages like English, German and Hindi among
+		  others, there has been little effort for Sinhala. We have approached to solve this problem by developing a rule based 
+		  algorithm that uses the Sinhala WordNet developed at University of Moratuwa. The algorithm used is a modified version of
+		   the Simplified Lesk algorithm where the input is first preprocessed using a stop list. Since there have not been many 
+		   significant initiatives on natural language processing applications for Sinhala, critical resources such as functioning
+		    morphological analysis tools are not available, making accurate word sense disambiguation an even harder task. The 
+		    initial system has been tested using web articles as the data source and has been evaluated to have a precision of 63% 
+		    and an F score of 0.63 disambiguating 10 Sinhala polysemous word. A simple morphological analysis tool is being 
+		    developed using a Prefix Tries. Also, the algorithm is being modified further to make use of linguistic relationships
+		     such as hypernymy, huponymy, meronymy and holonymy. The improvement in performance of the system due to the addition
+		      of the morphological analyzer and the modifications to the algorithm are to be evaluated.
+		</span>
+	</div> 
+	<div class="album_two">
+		@albumPaperTwo()
+	</div>
+	<div class = "separator"></div>
 </div>
