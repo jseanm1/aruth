@@ -209,3 +209,15 @@ html, body {
     background-color :transparent; 
     postition : relative;
 }
+
+
+
+.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+}
+		
+.box{
+			width : 200px;
+			height : 150px;
+}
+ 
