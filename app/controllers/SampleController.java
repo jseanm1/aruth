@@ -93,4 +93,7 @@ public class SampleController extends Controller{
 	public static Result publications(){
         return ok(views.html.publications.render());
     }
+	public static Result home(){
+        return ok(views.html.home.render());
+    }
 }

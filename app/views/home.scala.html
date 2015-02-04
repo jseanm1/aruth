@@ -1,3 +1,39 @@
-<div>
-	
+<div id="inputBox" class="input-box">
+					<table>
+						<tr>
+							<td colspan = "2">
+								<div id="aruth-logo">
+									<h1><a href="" class="center-logo">Aruth</a></h1>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = "2">
+								<div class="text-wrapper">
+										<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
+								</div>
+							</td>
+						</tr> 
+						<tr> 
+							<td colspan="1">
+								<div class="text-wrapper">
+										<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
+								</div>
+							</td>
+							<td colspan="1">
+								<div class="submit-wrapper">
+										<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput()">Search</button>
+								</div> 
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="result-wrapper" id="result" >	
+										<p class = "result-topic">අදහස් කරන ලද අරුත</p>
+										<textarea maxlength="5000" name="text" id="result-show" class="result-sense" placeholder="sense goes here....."></textarea>
+								</div>
+							</td>
+						</tr>
+					</table>
 </div>
+				
