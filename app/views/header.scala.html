@@ -42,7 +42,9 @@
 	function loadPage(page){ 
 		if (page == "publications"){ 
 			$( "#container" ).load("/publications");
-		} 
+		} else if (page == "home"){ 
+			$( "#container" ).load("/home");
+		}
 	}
 </script>
 
@@ -66,7 +68,7 @@
 		 </td>
 	     <td>
 				<div class="submit-wrapper-header">
-						<button type="submit" id="btn1" class="search-btn-header btn-header-hover">Home</button>
+						<button type="submit" id="btn1" class="search-btn-header btn-header-hover" onClick="loadPage('home');">Home</button>
 				</div> 
  		 </td>
  		 
