@@ -166,6 +166,7 @@ body {
 			background-color : #13a89e;
 			border-color : transparent;
 			color : white;
+			outline:0; 
 }
 #mySubmit:hover{ 
 			background-color : #088A85; 
