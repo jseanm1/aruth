@@ -19,7 +19,6 @@ import dao.WordNetReader;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.PointerUtils;
 import net.sf.extjwnl.data.Synset;
-import net.sf.extjwnl.data.list.PointerTargetNode;
 import net.sf.extjwnl.data.list.PointerTargetNodeList;
 
 public class WSDManager {
@@ -44,6 +43,7 @@ public class WSDManager {
 	 * Output the disambiguated target word - a noun
 	 * Uses Simplified Lesk Algorithm Version 1.0
 	 */
+	@SuppressWarnings(value = { "unused" })
 	private String getNounSenseUsingSLV1 (String context, String target) {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses;
@@ -197,6 +197,7 @@ public class WSDManager {
 		
 	}
 	
+	@SuppressWarnings(value = { "unused" })
 	private String getExamplesOfAGloss(String givenGloss)
 	{
 		String[] gloss=devideGloss(givenGloss);
