@@ -97,4 +97,14 @@ public class SampleController extends Controller{
         return ok(views.html.home.render());
 
     } 
+	
+	public static Result aboutUs()
+	{
+		 return ok(views.html.aboutUs.render());
+	}
+	
+	public static Result contactUs()
+	{
+		 return ok(views.html.contactUs.render());
+	}
 }
