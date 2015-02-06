@@ -3,12 +3,14 @@
  */
 package controllers;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import exceptions.AruthAPIException;
+import exceptions.ErrorCodes;
 
 import managers.SenseManager;
 import play.Logger;
@@ -27,18 +29,28 @@ public class SenseController extends Controller{
 	 * The attribute value will be passed to the WSDManager and all the senses will
 	 * be returned as a list
 	 */	
-	public static Result getAllSenses (String target) throws JsonGenerationException, JsonMappingException, IOException {
+	public static Result getAllSenses (String target) throws JsonGenerationException, JsonMappingException {
 		logger.info("Senses requested for " + target);
 		
 		SenseManager senseManager = new SenseManager();
-		List <String> senses = senseManager.getAllSenses(target);
+		List<String> senses;
 		
-		if (senses == null) {
-			return badRequest(target + " doesn't exist in Sinhala WordNet");
-		}
-		
-		JsonNode result = Json.toJson(senses);
-		
-		return ok(result);
+		try {
+			senses = senseManager.getAllSenses(target);
+			JsonNode result = Json.toJson(senses);
+			
+			return ok(result);
+			
+		} catch (AruthAPIException e) {
+			
+			if (e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND) {
+				
+				return badRequest(e.getErrorCode());
+				
+			} else {
+				
+				return internalServerError(e.getErrorCode());
+			}
+		}		
 	}
 }

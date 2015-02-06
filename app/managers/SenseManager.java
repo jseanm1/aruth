@@ -9,6 +9,7 @@ import java.util.List;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.Synset;
 import dao.WordNetReader;
+import exceptions.AruthAPIException;
 
 import play.Logger;
 import play.Logger.ALogger;
@@ -22,7 +23,7 @@ public class SenseManager {
 	 * Output all the senses available in the WordNet
 	 * Implemented only for nouns
 	 */
-	public List<String> getAllSenses (String target) {
+	public List<String> getAllSenses (String target) throws AruthAPIException {
 		List <String> senses = getNounSenses(target);
 		
 		return senses;
@@ -32,15 +33,10 @@ public class SenseManager {
 	 * Input string 'target'
 	 * Output all the senses available in the WordNet for the noun
 	 */
-	private List<String> getNounSenses (String target) {
+	private List<String> getNounSenses (String target) throws AruthAPIException {
 		logger.info("Senses requested for "+target);
 		
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
-		
-		if (word == null) {
-			logger.error("Word not found on WordNet " + target);
-			return null;
-		}
 		
 		List <Synset> synset = word.getSenses();
 		List<String> glosses = new ArrayList<String>();

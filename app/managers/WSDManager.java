@@ -5,7 +5,6 @@
  */
 package managers;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +15,10 @@ import algorithms.OptimizedLeskV1;
 import algorithms.SimplifiedLeskV1;
 
 import dao.WordNetReader;
+import exceptions.AruthAPIException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.PointerUtils;
 import net.sf.extjwnl.data.Synset;
-import net.sf.extjwnl.data.list.PointerTargetNode;
 import net.sf.extjwnl.data.list.PointerTargetNodeList;
 
 public class WSDManager {
@@ -31,7 +30,7 @@ public class WSDManager {
 	 * Output the disambiguated sense of the target word
 	 * Implemented only for the noun disambiguation currently
 	 */
-	public String getSense (String context, String target) {
+	public String getSense (String context, String target) throws AruthAPIException {
 		//String gloss = getNounSenseUsingSLV1(context, target);
 		String gloss = getNounSensesUsingOLV1(context, target);
 		String sense = getSenseOfAGloss(gloss);
@@ -44,7 +43,8 @@ public class WSDManager {
 	 * Output the disambiguated target word - a noun
 	 * Uses Simplified Lesk Algorithm Version 1.0
 	 */
-	private String getNounSenseUsingSLV1 (String context, String target) {
+	@SuppressWarnings(value = { "unused" })
+	private String getNounSenseUsingSLV1 (String context, String target) throws AruthAPIException {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses;
 		String sense;
@@ -58,14 +58,10 @@ public class WSDManager {
 		
 		glosses = getGlosses(word);
 		
-		try {
-			senseIndex = new SimplifiedLeskV1().getNounSense(glosses, context, target);
-			sense = glosses.get(senseIndex);
-			return sense;
-		} catch (IOException e) {
-			logger.error(e.getLocalizedMessage());
-			return null;
-		}		
+		senseIndex = new SimplifiedLeskV1().getNounSense(glosses, context, target);
+		sense = glosses.get(senseIndex);
+		return sense;
+			
 	}
 	
 	/*
@@ -73,7 +69,7 @@ public class WSDManager {
 	 * Output the disambiguated target word - a noun
 	 * Uses Optimized Lesk Algorithm Version 1.0
 	 */	
-	private String getNounSensesUsingOLV1 (String context, String target) {
+	private String getNounSensesUsingOLV1 (String context, String target) throws AruthAPIException {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses, parentGlosses, childGlosses;
 		String sense;
@@ -89,18 +85,14 @@ public class WSDManager {
 		parentGlosses = getParentGlosses(word);
 		childGlosses = getChildGosses(word);
 		
-		try {
-			senseIndex = new OptimizedLeskV1().getNounSense(glosses, 
-															parentGlosses, 
-															childGlosses,
-															context, 
-															target);
-			sense = glosses.get(senseIndex);
-			return sense;
-		} catch (IOException e) {
-			logger.error(e.getLocalizedMessage());
-			return null;
-		}
+		senseIndex = new OptimizedLeskV1().getNounSense(glosses, 
+														parentGlosses, 
+														childGlosses,
+														context, 
+														target);
+		sense = glosses.get(senseIndex);
+		return sense;
+		
 	}
 	
 	@SuppressWarnings("unused")
@@ -197,6 +189,7 @@ public class WSDManager {
 		
 	}
 	
+	@SuppressWarnings(value = { "unused" })
 	private String getExamplesOfAGloss(String givenGloss)
 	{
 		String[] gloss=devideGloss(givenGloss);

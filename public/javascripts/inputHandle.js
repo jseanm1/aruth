@@ -30,7 +30,7 @@ function submitInput(){
 			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
 			 			$('#result-show').val( ""+ sense +"" ); 
 				   } 
-		// error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
+		//error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
 		 
    }); 
 }

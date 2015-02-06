@@ -10,6 +10,9 @@ import views.html.*;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import exceptions.AruthAPIException;
+import exceptions.ErrorCodes;
+
 public class SampleController extends Controller{
 
 	/*
@@ -42,7 +45,19 @@ public class SampleController extends Controller{
     		 return badRequest("parameter 'name' missing");
     	}
     	 
-		s = new SampleManager().getNoun(word);
+		try {
+			s = new SampleManager().getNoun(word);
+		} catch (AruthAPIException e) {
+			
+			if (e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND) {
+				
+				return badRequest(e.getErrorCode());
+				
+			} else {
+				
+				return internalServerError(e.getErrorCode());
+			}
+		}
 		
 		return ok(s);
 	}

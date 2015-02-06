@@ -6,8 +6,9 @@
  */
 package algorithms;
 
-import java.io.IOException;
 import java.util.List;
+
+import exceptions.AruthAPIException;
 
 import play.Logger;
 
@@ -29,7 +30,7 @@ public class OptimizedLeskV1 {
 	private static final float A = 0.5f;
 
 	public int getNounSense(List<String> glosses, List<String> parentGlosses, List<String> childGlosses, 
-			String context, String target) throws IOException {
+			String context, String target) throws AruthAPIException {
 		int maxIndex = 0;
 		float maxvalue = 0;
 		

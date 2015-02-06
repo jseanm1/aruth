@@ -4,13 +4,15 @@
 package controllers;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 
 import net.sf.extjwnl.JWNLException;
 import managers.WSDManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import exceptions.AruthAPIException;
+import exceptions.ErrorCodes;
 
 import play.Logger;
 import play.Logger.ALogger;
@@ -48,12 +50,24 @@ public class WSDController extends Controller {
 		}
 		
 		logger.info("disambiguating target: " + target + " for context: " + context);
-		sense = wsdManager.getSense(context, target);
 		
-		ObjectNode result = Json.newObject(); 
-		result.put("sense",sense); 
-		
-		return ok(result);
-	}
-	
+		try {
+			sense = wsdManager.getSense(context, target);
+			ObjectNode result = Json.newObject(); 
+			result.put("sense",sense); 
+			
+			return ok(result);
+			
+		} catch (AruthAPIException e) {
+			
+			if (e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND) {
+				
+				return badRequest(e.getErrorCode());
+				
+			} else {
+				
+				return internalServerError(e.getErrorCode());
+			}			
+		}		
+	}	
 }
