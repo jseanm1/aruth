@@ -18,7 +18,7 @@ public class LeskPreprocessor {
 		List<String> stopWords = new StopWordReader().getStopWords();
 		
 		// replace other characters and get the user context as a list of Strings
-		List<String> pContextTemp = Arrays.asList(context.replaceAll("[|\"]", " ").split(" "));
+		List<String> pContextTemp = Arrays.asList(context.replaceAll("[\\[\\]|\".,]", " ").split(" "));
 		List<String> pContext = new ArrayList<String>();
 		
 		for (String word : pContextTemp) {

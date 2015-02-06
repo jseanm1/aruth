@@ -40,13 +40,11 @@ public class LeskPreprocessorTestCases {
 			
 			// all words in the list should be from the original text
 			for (String s : pContext) {
-				System.out.println("-"+s);
 				assertTrue(context.contains(s));
 			}
 			
 			// all unnecessary symbols should be removed
 			for (String s : pContext) {
-				System.out.println(s);				
 				assertFalse(s.contains("["));
 				assertFalse(s.contains("]"));
 				assertFalse(s.contains("\""));
