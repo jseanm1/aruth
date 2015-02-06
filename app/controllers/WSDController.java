@@ -68,9 +68,6 @@ public class WSDController extends Controller {
 				
 				return internalServerError(e.getErrorCode());
 			}			
-		}
-		
-		
-	}
-	
+		}		
+	}	
 }
