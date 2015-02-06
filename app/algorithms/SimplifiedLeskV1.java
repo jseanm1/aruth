@@ -6,8 +6,9 @@
  */
 package algorithms;
 
-import java.io.IOException;
 import java.util.List;
+
+import exceptions.AruthAPIException;
 
 import utils.LeskPreprocessor;
 
@@ -22,7 +23,8 @@ public class SimplifiedLeskV1 {
 	private List<String> pContext;
 	private List<String> pGlosses;
 	
-	public int getNounSense (List<String> glosses, String context, String target) throws IOException {
+	public int getNounSense (List<String> glosses, String context, String target) 
+			throws AruthAPIException {
 		// preprocess context
 		pContext = LeskPreprocessor.preprocessContext(context);
 		
