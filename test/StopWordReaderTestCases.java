@@ -17,7 +17,7 @@ public class StopWordReaderTestCases {
 	public void testGetStopWords () {
 		
 		try {
-			System.out.println("Executing StopWOrdReaderTestCases.testGetStopWords()");
+			System.out.println("Executing StopWOrdReaderTestCases.testGetStopWords");
 			
 			// should not throw an exception
 			List<String> stopWords = new StopWordReader().getStopWords();
@@ -27,7 +27,7 @@ public class StopWordReaderTestCases {
 			
 			//should not be empty
 			assertTrue(stopWords.size()>0);
-			System.out.println("Succesfully executed StopWOrdReaderTestCases.testGetStopWords()");
+			System.out.println("Succesfully executed StopWOrdReaderTestCases.testGetStopWords");
 			
 		} catch (AruthAPIException e) {
 			System.err.println("Test failed: " + e.getErrorCode() + " " + e.getMessage());
