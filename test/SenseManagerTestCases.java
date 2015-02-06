@@ -29,26 +29,19 @@ public class SenseManagerTestCases {
 	 * Tests if SenseManager.getAllSenses is working properly
 	 */
 	@Test
-	public void testGetAllSenses () {
-		test1(SINHALA_WORD_CORRECT);
-		test2(SINHALA_WORD_WRONG);
-		test2(ENGLISH_WORD);
-		test2(NONSE);
-	}
-	
-	public void test1 (String noun) {
+	public void testGetAllSenses1 () {
 		try {
-			System.out.println("Executing SenseManagerTestCase.test1(" + noun + ")");
+			System.out.println("Executing SenseManagerTestCase.testGetAllSesnses1");
 			
 			// should not throw an exception
-			List<String> senses = senseManager.getAllSenses(noun);
+			List<String> senses = senseManager.getAllSenses(SINHALA_WORD_CORRECT);
 			
 			// should not be null
 			assertTrue(senses != null);
 			
 			// should be of size larger than zero
 			assertTrue(senses.size() > 0);
-			System.out.println("Succesfuylly executed SenseManagerTestCase.test1(" + noun + ")");
+			System.out.println("Succesfuylly executed SenseManagerTestCase.testGetAllSenses1");
 			
 		} catch (AruthAPIException e) {
 			System.err.println("Test failed: " + e.getErrorCode() + " " + e.getMessage());
@@ -57,20 +50,59 @@ public class SenseManagerTestCases {
 		}
 	}
 	
-	public void test2 (String noun) {
+	@Test
+	public void testGetAllSenses2 () {
 		try {
-			System.out.println("Executing SenseManagerTestCase.test1(" + noun + ")");
+			System.out.println("Executing SenseManagerTestCase.testGetAllSenses2");
 		
 			//should throw an exception	
 			@SuppressWarnings(value = { "unused" })
-			List<String> senses = senseManager.getAllSenses(noun);
+			List<String> senses = senseManager.getAllSenses(SINHALA_WORD_WRONG);
 			
 			System.err.println("Test failed");
 			assertFalse(true);
 			
 		} catch (AruthAPIException e) {
 			assertTrue(e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND);
-			System.out.println("Succesfuylly executed SenseManagerTestCase.test1(" + noun + ")");
+			System.out.println("Succesfuylly executed SenseManagerTestCase.testGetAllSenses2");
+			
+		}		
+	}
+	
+	@Test
+	public void testGetAllSenses3 () {
+		try {
+			System.out.println("Executing SenseManagerTestCase.testGetAllSenses3");
+		
+			//should throw an exception	
+			@SuppressWarnings(value = { "unused" })
+			List<String> senses = senseManager.getAllSenses(ENGLISH_WORD);
+			
+			System.err.println("Test failed");
+			assertFalse(true);
+			
+		} catch (AruthAPIException e) {
+			assertTrue(e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND);
+			System.out.println("Succesfuylly executed SenseManagerTestCase.testGetAllSenses3");
+			
+		}		
+	}
+	
+	@Test
+	public void testGetAllSenses4 () {
+		try {
+			System.out.println("Executing SenseManagerTestCase.testGetAllSenses4");
+		
+			//should throw an exception	
+			@SuppressWarnings(value = { "unused" })
+			List<String> senses = senseManager.getAllSenses(NONSE);
+			
+			System.err.println("Test failed");
+			assertFalse(true);
+			
+		} catch (AruthAPIException e) {
+			assertTrue(e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND);
+			System.out.println("Succesfuylly executed SenseManagerTestCase.testGetAllSenses4");
 			
 		}		
 	}
