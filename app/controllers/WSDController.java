@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import exceptions.AruthAPIException;
+import exceptions.ErrorCodes;
 
 import play.Logger;
 import play.Logger.ALogger;
@@ -59,7 +60,14 @@ public class WSDController extends Controller {
 			
 		} catch (AruthAPIException e) {
 			
-			return internalServerError(e.getErrorCode());			
+			if (e.getErrorCode() == ErrorCodes.WORD_NOT_FOUND) {
+				
+				return badRequest(e.getErrorCode());
+				
+			} else {
+				
+				return internalServerError(e.getErrorCode());
+			}			
 		}
 		
 		

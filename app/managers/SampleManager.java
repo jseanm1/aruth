@@ -5,18 +5,15 @@
 package managers;
 
 import dao.WordNetReader;
+import exceptions.AruthAPIException;
 import net.sf.extjwnl.data.IndexWord;
 
 public class SampleManager {
 
-	public String getNoun (String noun) {
+	public String getNoun (String noun) throws AruthAPIException {
 		
 		IndexWord iw = WordNetReader.getNounAsIndexWord(noun);
 		
-		if (iw == null) {
-			return "Error! Word " + noun + "not found";
-		} else {
-			return iw.getLemma();
-		}
+		return iw.getLemma();
 	}
 }

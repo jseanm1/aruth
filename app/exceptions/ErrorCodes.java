@@ -17,5 +17,11 @@ public class ErrorCodes {
 	public final static String CANNOT_OPEN_FILE = "000001";
 	
 	public final static String CANNOT_READ_FILE = "000002";
+	
+	public final static String CANNOT_CREATE_DICTIONARY = "000005";
+	
+	public final static String CANNOT_READ_DICTIONARY = "000004";
+	
+	public final static String WORD_NOT_FOUND = "100001";
 
 }
