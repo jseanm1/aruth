@@ -69,7 +69,7 @@ function getAllSenses(){
 			 			
 			 			
 			 			$("#word-senses").append("<div class='meaning-of-a-sense'>"+ res[0] +"</div>");
-			 			$("#word-senses").append("<div>"+ res[1].replace(/"/g, "") +"</div>");
+			 			$("#word-senses").append("<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div>");
 			 		} 
 			 		 
 		 },	 		 
