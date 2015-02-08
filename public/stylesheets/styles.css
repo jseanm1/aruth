@@ -45,7 +45,11 @@ body {
 	display: none;	
 }
 #word-senses .meaning-of-a-sense{	
-	color : green;
+	color : black;
+}
+#word-senses .example-of-a-sense{
+	color : #088A85;
+	margin-left:5%;
 }
 
 .result-sense{
