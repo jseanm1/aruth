@@ -25,10 +25,15 @@ function submitInput(){
 			 		alert(output);*/
 			 			
 						//$('#result').html( data ); 
-			 			var sense = data["sense"];
+			 			var res = data["sense"].split("|");
+			 			var sense = res[0];
+			 			var offSet = data["offset"];
+			 			console.log("offSet :   "+offSet);
 			 			//alert(sense);
 			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
 			 			$('#result-show').val( ""+ sense +"" ); 
+			 			$('#offSet').val(offSet);
+			 			//alert($('#offSet').val());
 				   }, 
 		//error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
 		error: function(data){ 
