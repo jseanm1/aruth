@@ -48,7 +48,7 @@ function getAllSenses(){
 	//get the user input data from the view using jQuery
 	var context = $("#context").val();
 	var word = $("#target").val();
-	//$( "#result" ).show(); 
+	$( "#all-senses" ).show(); 
 	// we use ajax to send a post request to back-end and send a json response to front-end
 	// https://www.airpair.com/js/jquery-ajax-post-tutorial
 	
@@ -62,28 +62,25 @@ function getAllSenses(){
 		 processData: false,
 		 success:  function( data){
 			 		console.log(data); // to print response data to the console
-			 		
-			 		/*var output;			 		
-			 		for (var property in data) {
-			 			  output = property + ' : ' + data[property]+'; ';
-			 		}
-			 		alert(output);*/
+			 		$("#word-senses").empty();
+			 		for (var i = 0; i < data.length; i++) { 
+			 			console.log(data[i]);
+			 			var res = data[i].split("|");
 			 			
-						//$('#result').html( data ); 
-			 			//var sense = data["sense"];
-			 			//alert(sense);
-			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
-			 			//$('#result-show').val( ""+ sense +"" ); 
-				   } 
-		//error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
-		/*error: function(data){ 
+			 			
+			 			$("#word-senses").append("<div class='meaning-of-a-sense'>"+ res[0] +"</div>");
+			 			$("#word-senses").append("<div>"+ res[1].replace(/"/g, "") +"</div>");
+			 		} 
+			 		 
+		 },	 		 
+		 error: function(data){ 
 			if(data["responseText"] == "100001"){
 				console.log( data["responseText"] ); 
-				$('#result-show').val( " අරුත පැහැදිලි කිරීමට තරම් ප්‍රමණවත් දත්ත නොමැත " ); 
+				$('#word-senses').empty().append("<div>අරුත පැහැදිලි කිරීමට තරම් ප්‍රමණවත් දත්ත නොමැත</div>" );
 			} else if(data["responseText"] == "000005"){
 				console.log( data["responseText"] ); 
 			}
-		}*/
+		 }
 		 
    }); 
 }

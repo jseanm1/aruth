@@ -41,6 +41,12 @@ body {
 #result{
 	display: none;	
 }
+#all-senses{
+	display: none;	
+}
+#word-senses .meaning-of-a-sense{	
+	color : green;
+}
 
 .result-sense{
 			background-color: #EEE;
