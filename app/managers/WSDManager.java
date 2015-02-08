@@ -122,6 +122,7 @@ public class WSDManager {
 		
 		for (Synset syn : synset) {
 			glosses.add(syn.getGloss());
+			System.out.println(syn.getGloss());
 		}
 		
 		return glosses;
@@ -174,25 +175,23 @@ public class WSDManager {
 		return childGlosses;		
 	}
 	
-	private String[] devideGloss(String gloss)
+	private String[] divideGloss(String gloss)
 	{
 		String[] string=gloss.split("\\|");
-		return string;
-		
+		return string;		
 	}
 	
 	private String getSenseOfAGloss(String givenGloss)
 	{
-		String[] gloss=devideGloss(givenGloss);
+		String[] gloss=divideGloss(givenGloss);
 		String sense=gloss[0];
-		return sense;
-		
+		return sense;		
 	}
 	
 	@SuppressWarnings(value = { "unused" })
 	private String getExamplesOfAGloss(String givenGloss)
 	{
-		String[] gloss=devideGloss(givenGloss);
+		String[] gloss=divideGloss(givenGloss);
 		String examples=gloss[1];
 		return examples;
 	} 
