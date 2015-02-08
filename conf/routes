@@ -23,11 +23,12 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /tryWordSenseDisambiguation	controllers.SampleController.tryWordSenseDisambiguation()
 GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)
 POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
+POST    /getAllSenses				controllers.SenseController.getAllSensesUsingJason()
 
 
 GET     /publications               controllers.SampleController.publications()
-GET     /home              			 controllers.SampleController.home()
-GET     /aboutUs              			 controllers.SampleController.aboutUs()
-GET     /contactUs              			 controllers.SampleController.contactUs()
+GET     /home              			controllers.SampleController.home()
+GET     /aboutUs              		controllers.SampleController.aboutUs()
+GET     /contactUs              	controllers.SampleController.contactUs()
 
 
