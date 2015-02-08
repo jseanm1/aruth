@@ -15,7 +15,9 @@ body {
 	 
 }
 
-
+.hide-element{
+	display: none;	
+}
 
 .submitButtonPosition{
 	float : right;	
