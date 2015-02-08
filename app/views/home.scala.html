@@ -14,18 +14,23 @@
 										<textarea maxlength="5000" id ="context" name="text" class="input-word" placeholder="Context goes here....."></textarea>
 								</div>
 							</td>
-						</tr> 
+						</tr>  
 						<tr> 
 							<td colspan="1">
 								<div class="text-wrapper">
 										<textarea maxlength="5000" id="target" name="text" class="target-word" placeholder="Word to disambiguate goes here....."></textarea>
 								</div>
 							</td>
-							<td colspan="1">
+							<td colspan="1"> 
 								<div class="submit-wrapper">
-										<button type="submit" id="mySubmit" class="search-btn" onClick="submitInput();getAllSenses()">Search</button>
+										<button type="submit" id="mySubmit" class="search-btn" onClick="tryExecute()">Search / අරුත</button>
 								</div> 
 							</td>
+						</tr>
+						<tr>
+							<td colspan = "2"><div id="error-bar-home" class="home-search-input-error-bar">
+								 
+							</div></td>
 						</tr>
 						<tr>
 							<td colspan="2">
@@ -45,7 +50,7 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<div style="border-top: solid 1px #EEE;margin-left:10%;margin-top:2%;" ></div>
+								<div style="border-top: solid 1px #EEE;margin-top:2%;" ></div>
 							</td>
 						</tr>
 					</table>
