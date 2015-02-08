@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import managers.SenseManager;
+import net.sf.extjwnl.data.Synset;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,7 +35,7 @@ public class SenseManagerTestCases {
 			System.out.println("Executing SenseManagerTestCase.testGetAllSesnses1");
 			
 			// should not throw an exception
-			List<String> senses = senseManager.getAllSenses(SINHALA_WORD_CORRECT);
+			List<Synset> senses = senseManager.getAllSenses(SINHALA_WORD_CORRECT);
 			
 			// should not be null
 			assertTrue(senses != null);
@@ -57,7 +58,7 @@ public class SenseManagerTestCases {
 		
 			//should throw an exception	
 			@SuppressWarnings(value = { "unused" })
-			List<String> senses = senseManager.getAllSenses(SINHALA_WORD_WRONG);
+			List<Synset> senses = senseManager.getAllSenses(SINHALA_WORD_WRONG);
 			
 			System.err.println("Test failed");
 			assertFalse(true);
@@ -76,7 +77,7 @@ public class SenseManagerTestCases {
 		
 			//should throw an exception	
 			@SuppressWarnings(value = { "unused" })
-			List<String> senses = senseManager.getAllSenses(ENGLISH_WORD);
+			List<Synset> senses = senseManager.getAllSenses(ENGLISH_WORD);
 			
 			System.err.println("Test failed");
 			assertFalse(true);
@@ -95,7 +96,7 @@ public class SenseManagerTestCases {
 		
 			//should throw an exception	
 			@SuppressWarnings(value = { "unused" })
-			List<String> senses = senseManager.getAllSenses(NONSE);
+			List<Synset> senses = senseManager.getAllSenses(NONSE);
 			
 			System.err.println("Test failed");
 			assertFalse(true);

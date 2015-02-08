@@ -6,12 +6,10 @@ package managers;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.Synset;
 import net.sf.extjwnl.data.Word;
 import dao.WordNetReader;
 import exceptions.AruthAPIException;
-import exceptions.ErrorCodes;
 
 import play.Logger;
 import play.Logger.ALogger;
