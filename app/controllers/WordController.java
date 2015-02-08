@@ -29,8 +29,7 @@ public class WordController extends Controller {
 	 * be returned
 	 */
 	public static Result getAllWordsForASense () {
-		String word;
-		String sense;
+		long offset = -1;
 		WordManager wordManager = new WordManager();
 		List<String> words;
 		
@@ -41,16 +40,15 @@ public class WordController extends Controller {
     		return badRequest("no json data");
     	} 
 		
-		word = json.findPath("word").asText();
-		sense = json.findPath("sense").asText();
+		offset = json.findPath("offset").asLong();
 		
-		if (word == null || sense == null) {
+		if (offset == -1) {
 			logger.warn("bad request: one or more parameters missing");
 			return badRequest("one or more parameters missing");
 		}
 		
 		try {
-			words = wordManager.getAllWordsForASense(word, sense);
+			words = wordManager.getAllWordsForASense(offset);
 			JsonNode result = Json.toJson(words);
 			
 			return ok(result);		

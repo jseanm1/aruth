@@ -17,6 +17,7 @@ import play.Logger.ALogger;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.POS;
+import net.sf.extjwnl.data.Synset;
 import net.sf.extjwnl.dictionary.Dictionary;
 
 public class WordNetReader {
@@ -55,6 +56,25 @@ public class WordNetReader {
 		} else {
 			return word;
 		}
+	}
+	
+	/*
+	 * Input the offset
+	 * Will return the synset at that offset 
+	 */
+	public static Synset getSynset (long offset) throws AruthAPIException {
+		Dictionary dictionary = getDictionary();
+		
+		try {
+			Synset synset  = dictionary.getSynsetAt(POS.NOUN, offset);
+			
+			return synset;
+		} catch (JWNLException e) {
+			String errorMessage = "Failed to retrieve synset " + offset;
+			logger.warn(errorMessage);
+			
+			throw new AruthAPIException(ErrorCodes.SENSE_NOT_FOUND, errorMessage, null);
+		}		
 	}
 	
 	/*

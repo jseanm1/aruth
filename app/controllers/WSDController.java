@@ -6,6 +6,7 @@ package controllers;
 import java.io.FileNotFoundException;
 
 import net.sf.extjwnl.JWNLException;
+import net.sf.extjwnl.data.Synset;
 import managers.WSDManager;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -31,7 +32,7 @@ public class WSDController extends Controller {
 	public static Result disambiguate() throws FileNotFoundException, JWNLException {
 		String context;
 		String target;
-		String sense;
+		Synset sense;
 		WSDManager wsdManager = new WSDManager();
 		
 		JsonNode json = request().body().asJson();
@@ -54,7 +55,8 @@ public class WSDController extends Controller {
 		try {
 			sense = wsdManager.getSense(context, target);
 			ObjectNode result = Json.newObject(); 
-			result.put("sense",sense); 
+			result.put("sense",sense.getGloss());
+			result.put("offset", sense.getOffset());
 			
 			return ok(result);
 			

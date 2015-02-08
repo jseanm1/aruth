@@ -27,13 +27,17 @@ public class WSDManager {
 	
 	/*
 	 * Input strings 'context' and 'target'
-	 * Output the disambiguated sense of the target word
+	 * Output the disambiguated sense of the target word (the entire gloss)
 	 * Implemented only for the noun disambiguation currently
 	 */
-	public String getSense (String context, String target) throws AruthAPIException {
+	public Synset getSense (String context, String target) throws AruthAPIException {
 		//String gloss = getNounSenseUsingSLV1(context, target);
-		String gloss = getNounSensesUsingOLV1(context, target);
-		String sense = getSenseOfAGloss(gloss);
+		Synset sense = getNounSensesUsingOLV1(context, target);
+		
+		/*
+		 * sending the entire gloss.
+		 */
+		//String sense = getSenseOfAGloss(gloss);
 		
 		return sense;
 	}
@@ -44,24 +48,28 @@ public class WSDManager {
 	 * Uses Simplified Lesk Algorithm Version 1.0
 	 */
 	@SuppressWarnings(value = { "unused" })
-	private String getNounSenseUsingSLV1 (String context, String target) throws AruthAPIException {
+	private Synset getNounSenseUsingSLV1 (String context, String target) throws AruthAPIException {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses;
-		String sense;
 		int senseIndex;
+		List<Synset> senses;
+		Synset sense = null;
 		
-		if (word == null) {
-			String error = "no match found for noun " + target;
-			logger.warn(error);
-			return error;
-		} 
-		
+		senses = word.getSenses();
 		glosses = getGlosses(word);
-		
+				
 		senseIndex = new SimplifiedLeskV1().getNounSense(glosses, context, target);
-		sense = glosses.get(senseIndex);
+		
+		for (Synset s : senses) {
+			if (s.getGloss().equals(glosses.get(senseIndex))) {
+				
+				sense = s;
+				
+				break;				
+			}			
+		}
+		
 		return sense;
-			
 	}
 	
 	/*
@@ -69,18 +77,14 @@ public class WSDManager {
 	 * Output the disambiguated target word - a noun
 	 * Uses Optimized Lesk Algorithm Version 1.0
 	 */	
-	private String getNounSensesUsingOLV1 (String context, String target) throws AruthAPIException {
+	private Synset getNounSensesUsingOLV1 (String context, String target) throws AruthAPIException {
 		IndexWord word = WordNetReader.getNounAsIndexWord(target);
 		List <String> glosses, parentGlosses, childGlosses;
-		String sense;
 		int senseIndex;
+		List<Synset> senses;
+		Synset sense = null;
  
-		if (word == null) {
-			String error = "no match found for noun " + target;
-			logger.warn(error);
-			return error;
-		} 
-		
+		senses = word.getSenses();
 		glosses = getGlosses(word);
 		parentGlosses = getParentGlosses(word);
 		childGlosses = getChildGosses(word);
@@ -90,7 +94,15 @@ public class WSDManager {
 														childGlosses,
 														context, 
 														target);
-		sense = glosses.get(senseIndex);
+		for (Synset s : senses) {
+			if (s.getGloss().equals(glosses.get(senseIndex))) {
+				
+				sense = s;
+				
+				break;				
+			}			
+		}
+		
 		return sense;
 		
 	}
@@ -181,6 +193,7 @@ public class WSDManager {
 		return string;		
 	}
 	
+	@SuppressWarnings(value = { "unused" })
 	private String getSenseOfAGloss(String givenGloss)
 	{
 		String[] gloss=divideGloss(givenGloss);

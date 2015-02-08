@@ -25,10 +25,10 @@ public class WordManager {
 	 * Output List<String> all the words that has that sense
 	 * Implemented only for nouns
 	 */
-	public List<String> getAllWordsForASense (String word, String sense) throws AruthAPIException {
-		logger.info("All words for sense " + sense + " requested");
+	public List<String> getAllWordsForASense (long offset) throws AruthAPIException {
+		logger.info("All words for sense " + offset + " requested");
 		
-		List<Word> words = getAllNounsForASense(word, sense);
+		List<Word> words = getAllNounsForASense(offset);
 		List<String> wordList = new ArrayList<String>();
 		
 		for (Word w : words) {
@@ -38,30 +38,11 @@ public class WordManager {
 		return wordList;
 	}
 	
-	private List<Word> getAllNounsForASense (String word, String sense) throws AruthAPIException {
-		IndexWord iWord = WordNetReader.getNounAsIndexWord(word);
-		List<Synset> synsetList = iWord.getSenses();
-		Synset synset = null;
-		List<Word> words;
+	private List<Word> getAllNounsForASense (long offset) throws AruthAPIException {
+		Synset synset = WordNetReader.getSynset(offset);
 		
-		for(Synset s : synsetList) {
-			if (s.getGloss().equals(sense)) {
-				synset = s;
-				break;
-			}
-		}
+		List<Word> words = synset.getWords();
 		
-		if (synset == null) {
-			String errorMessage = "Sense " + sense + " not found in wordnet";
-			logger.warn(errorMessage);
-			
-			throw new AruthAPIException(ErrorCodes.SENSE_NOT_FOUND, errorMessage, null);
-			
-		} else {		
-			
-			words = synset.getWords();
-			
-			return words;
-		}		
+		return words;
 	}
 }

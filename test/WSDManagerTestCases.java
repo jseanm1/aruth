@@ -2,6 +2,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import managers.WSDManager;
+import net.sf.extjwnl.data.Synset;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class WSDManagerTestCases {
 			System.out.println("Executing WSDManagerTestCases.testGetSense1");
 			
 			// should not throw an exception
-			String sense = wsdManager.getSense(CONTEXT, SINHALA_WORD_CORRECT);
+			Synset sense = wsdManager.getSense(CONTEXT, SINHALA_WORD_CORRECT);
 			
 			// should not be null
 			assertTrue(sense != null);
@@ -59,7 +60,7 @@ public class WSDManagerTestCases {
 			
 			// should throw an exception
 			@SuppressWarnings(value = { "unused" })
-			String sense = wsdManager.getSense(CONTEXT, SINHALA_WORD_WRONG);
+			Synset sense = wsdManager.getSense(CONTEXT, SINHALA_WORD_WRONG);
 			
 			assertFalse(true);
 			System.out.println("Test failed");
@@ -78,7 +79,7 @@ public class WSDManagerTestCases {
 			
 			// should throw an exception
 			@SuppressWarnings(value = { "unused" })
-			String sense = wsdManager.getSense(CONTEXT, ENGLISH_WORD);
+			Synset sense = wsdManager.getSense(CONTEXT, ENGLISH_WORD);
 			
 			assertFalse(true);
 			System.out.println("Test failed");
@@ -97,7 +98,7 @@ public class WSDManagerTestCases {
 			
 			// should throw an exception
 			@SuppressWarnings(value = { "unused" })
-			String sense = wsdManager.getSense(CONTEXT, NONSE);
+			Synset sense = wsdManager.getSense(CONTEXT, NONSE);
 			
 			assertFalse(true);
 			System.out.println("Test failed");
