@@ -29,8 +29,16 @@ function submitInput(){
 			 			//alert(sense);
 			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
 			 			$('#result-show').val( ""+ sense +"" ); 
-				   } 
+				   }, 
 		//error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
+		error: function(data){ 
+			if(data["responseText"] == "100001"){
+				console.log( data["responseText"] ); 
+				$('#result-show').val( " අරුත පැහැදිලි කිරීමට තරම් ප්‍රමණවත් දත්ත නොමැත " ); 
+			} else if(data["responseText"] == "000005"){
+				console.log( data["responseText"] ); 
+			}
+		}
 		 
    }); 
 }

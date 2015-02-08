@@ -27,7 +27,7 @@
 	}
 	.submit-wrapper-header BUTTON{
 			height: 30px;
-			min-width: 80%;
+			min-width: 100%;
 			//float: right;
 			/*
 			border-top-left-radius: 0;
@@ -36,6 +36,9 @@
 	}
 	.submit-wrapper-header{
 		padding-top:15px;
+	}
+	.tab-topic{
+		font-size : 12px;
 	}
 </style>
 
@@ -59,22 +62,22 @@
 	  <tr>
 	  	<td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn3" class="search-btn-header btn-header-hover" onClick="loadPage('contactUs');">Contact Us</button>
+						<button type="submit" id="btn3" class="search-btn-header btn-header-hover" onClick="loadPage('contactUs');"><span class="tab-topic">Contact Us</span></button>
 				</div>
 		 </td>
 		 <td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('aboutUs');">About Us</button>
+						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('aboutUs');"><span class="tab-topic">About Aruth</span></button>
 				</div>
 		 </td>
 		 <td>
 	     		<div class="submit-wrapper-header">
-						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('publications');">Publications</button>
+						<button type="submit" id="btn2" class="search-btn-header btn-header-hover" onClick="loadPage('publications');"><span class="tab-topic">Publications</span></button>
 				</div>
 		 </td>
 	     <td>
 				<div class="submit-wrapper-header">
-						<button type="submit" id="btn1" class="search-btn-header btn-header-hover" onClick="loadPage('home');">Home</button>
+						<button type="submit" id="btn1" class="search-btn-header btn-header-hover" onClick="loadPage('home');"><span class="tab-topic">Home</span></button>
 				</div> 
  		 </td>
 	  </tr>
