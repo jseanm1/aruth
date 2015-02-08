@@ -23,5 +23,7 @@ public class ErrorCodes {
 	public final static String CANNOT_READ_DICTIONARY = "000004";
 	
 	public final static String WORD_NOT_FOUND = "100001";
+	
+	public final static String SENSE_NOT_FOUND = "100002";
 
 }

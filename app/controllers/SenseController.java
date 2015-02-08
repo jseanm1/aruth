@@ -1,5 +1,5 @@
 /*
- * All requests for WSD are handled by this class
+ * Requests for senses of a word are handled by this class
  */
 package controllers;
 
@@ -55,10 +55,13 @@ public class SenseController extends Controller{
 	}
 	
 	/*
+	 * /getAllSesnes
 	 * This below method is used to respond to a request with a Json data.
 	 * Json request will contain the target word
 	 * Then this will return the response as a list (Also a Json)
-	 * ex : ["ශරීර කොටසක්|"මුවින් නොබැන සිටීම","කට ආහාර අනුභවය්ට යොදාගනී"", "ශරීර කොටසක්|"උදෑසනම නැගිට මුව සෝදාගන්න","මුහුණ සෝදනවා", "සිනාසෙද්දී ඇගේ මුව මඩළ රෝස පැහැයෙන් බබළයි"", "වනයේ වෙසෙන සත්වයෙකි|කැළෑවේ වෙසෙන මුව රංචුව,මුව මස් ජාවාරම අද ප්‍රභල ප්‍රශ්නයකි"]
+	 * ex : ["ශරීර කොටසක්|"මුවින් නොබැන සිටීම","කට ආහාර අනුභවය්ට යොදාගනී"", "ශරීර කොටසක්|"
+	   * උදෑසනම නැගිට මුව සෝදාගන්න","මුහුණ සෝදනවා", "සිනාසෙද්දී ඇගේ මුව මඩළ රෝස පැහැයෙන් බබළයි"", "
+	   * වනයේ වෙසෙන සත්වයෙකි|කැළෑවේ වෙසෙන මුව රංචුව,මුව මස් ජාවාරම අද ප්‍රභල ප්‍රශ්නයකි"]
 	 * 
 	 */
 	public static Result getAllSensesUsingJason () throws JsonGenerationException, JsonMappingException {

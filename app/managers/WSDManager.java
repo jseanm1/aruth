@@ -143,7 +143,7 @@ public class WSDManager {
 				logger.info("No hypernyms for sense " + s.getGloss() + " in Sinhala WordNet");
 				parentGlosses.add("");
 			} else {
-				// only consider the immidiate synset
+				// only consider the immediate synset
 				parentGlosses.add(hypernym.get(0).getSynset().getGloss());
 			}
 		}
@@ -167,7 +167,7 @@ public class WSDManager {
 				logger.info("No hyponyms for sense " + s.getGloss() + " in Sinhala WordNet");
 				childGlosses.add("");
 			} else {
-				// only consider the immidiate synset
+				// only consider the immediate synset
 				childGlosses.add(hyponym.get(0).getSynset().getGloss());
 			}
 		}
