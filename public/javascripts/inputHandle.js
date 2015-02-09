@@ -98,11 +98,12 @@ function getAllSenses(){
 		 success:  function( data){
 			 		console.log(data); // to print response data to the console
 			 		$("#word-senses").empty();
-			 		for (var i = 0; i < data.length; i++) { 
-			 			console.log(data[i]);
-			 			var res = data[i].split("|"); 
-			 			$("#word-senses").append("<div class='meaning-of-a-sense'>"+ res[0] +"</div>");
-			 			$("#word-senses").append("<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div>");
+			 		var senses = data['senses'];
+			 		var offSets = data['offsets'];
+			 		for (var i = 0; i < senses.length; i++) { 
+			 			console.log(senses[i]);
+			 			var res = senses[i].split("|"); 
+			 			$("#word-senses").append("<div id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
 			 		}  
 		 },	 		 
 		 error: function(data){ 
@@ -116,3 +117,5 @@ function getAllSenses(){
 		 
    }); 
 }
+
+
