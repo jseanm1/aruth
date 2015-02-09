@@ -2,7 +2,11 @@ function tryExecute(){
 	if(validateInput()){
 		$("#error-bar-home").hide();
 		submitInput();
-		getAllSenses();
+		getAllSenses();		
+		//getAllWords();	
+		/* removed from here and call it inside first method call because
+		 * Perform an asynchronous HTTP (Ajax) request.
+		 */
 	}
 }
 
@@ -36,7 +40,7 @@ function submitInput(){
 	$( "#result" ).show(); 
 	// we use ajax to send a post request to back-end and send a json response to front-end
 	// https://www.airpair.com/js/jquery-ajax-post-tutorial
-	
+	$('#offSet').val("none...");
 	$.ajax({
 		 url: '/tryDisambiguatePost', 
 		 data: JSON.stringify({"context": context,"target": word}), 
@@ -47,7 +51,7 @@ function submitInput(){
 		 processData: false,
 		 success:  function( data){
 			 		console.log(data); // to print response data to the console
-			 		
+			 		$('#offSet').val("gf...");
 			 		/*var output;			 		
 			 		for (var property in data) {
 			 			  output = property + ' : ' + data[property]+'; ';
@@ -63,6 +67,7 @@ function submitInput(){
 			 			//$('#result2').empty().append( "<p>The correct sense :"+ sense +"</p>" );
 			 			$('#result-show').val( ""+ sense +"" ); 
 			 			$('#offSet').val(offSet);
+			 			getAllWords();
 			 			//alert($('#offSet').val());
 				   }, 
 		//error: function( jqXhr, textStatus, errorThrown ){ console.log( errorThrown ); } 
@@ -77,7 +82,6 @@ function submitInput(){
 		 
    }); 
 }
-
 
 function getAllSenses(){
 	//get the user input data from the view using jQuery
@@ -106,7 +110,7 @@ function getAllSenses(){
 			 			$("#word-senses").append("<div id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
 			 		}  
 		 },	 		 
-		 error: function(data){ 
+		 error: function(data){ 			
 			if(data["responseText"] == "100001"){
 				console.log( data["responseText"] ); 
 				$('#word-senses').empty().append("<div>අරුත පැහැදිලි කිරීමට තරම් ප්‍රමාණවත් දත්ත නොමැත</div>" );
@@ -119,3 +123,40 @@ function getAllSenses(){
 }
 
 
+function getAllWords(){
+	//get the user input data from the view using jQuery
+	var offSet = $("#offSet").val();	
+	$( "#result-other-words" ).show(); 
+	// we use ajax to send a post request to back-end and send a json response to front-end
+	// https://www.airpair.com/js/jquery-ajax-post-tutorial
+	
+	$.ajax({
+		 url: '/getAllWords', 
+		 data: JSON.stringify({"offset": offSet}), 
+		 type: 'post', 
+		 contentType: 'application/json',
+		 dataType: 'json', 		// use this if the response type is Json	 
+		 //dataType: 'html',   // use this if the response type is html	 
+		 processData: false,
+		 success:  function( data){
+			 		console.log("getAllWords    : "+data); // to print response data to the console
+			 		$("#other-words-list").empty().append("<div>"+data+"</div>");
+			 		/*var senses = data['senses'];
+			 		var offSets = data['offsets'];
+			 		for (var i = 0; i < senses.length; i++) { 
+			 			console.log(senses[i]);
+			 			var res = senses[i].split("|"); 
+			 			$("#word-senses").append("<div id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
+			 		}  */
+		 },	 		 
+		 error: function(data){ 
+			if(data["responseText"] == "100001"){
+				console.log( data["responseText"] ); 
+				$('#word-senses').empty().append("<div>අරුත පැහැදිලි කිරීමට තරම් ප්‍රමාණවත් දත්ත නොමැත</div>" );
+			} else if(data["responseText"] == "000005"){
+				console.log( data["responseText"] ); 
+			}
+		 }
+		 
+   }); 
+}

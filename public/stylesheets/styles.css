@@ -56,6 +56,9 @@ body {
 #all-senses{
 	display: none;	
 }
+#result-other-words{
+	display: none;
+}
 #word-senses .meaning-of-a-sense{	
 	color : black;
 }
@@ -99,6 +102,10 @@ body {
 			border-top: solid 1px #DFDFDF;	
 			padding-top:2%;
 }
+#other-words-list{
+	  margin-bottom: 15px;
+}
+
 .result-topic{
 	padding: 0 0 1% 0 ;	
 	color:red;
