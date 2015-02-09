@@ -14,9 +14,11 @@ public class AruthAPIException extends Exception {
 	public AruthAPIException (String errorCode, String message, Throwable t) {
 		super(message, t);
 		this.errorCode = errorCode;
+		
 	}
 	
 	public String getErrorCode () {
+		System.out.print(errorCode);
 		return errorCode;
 	}
 
