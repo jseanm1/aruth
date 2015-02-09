@@ -27,6 +27,7 @@ GET     /tryWordSenseDisambiguation	controllers.SampleController.tryWordSenseDis
 GET     /tryDisambiguate		    controllers.SampleController.disambiguate(context,word)
 POST    /tryDisambiguatePost		controllers.WSDController.disambiguate()
 POST    /getAllSenses				controllers.SenseController.getAllSensesUsingJason()
+POST    /getAllWords				controllers.WordController.getAllWordsForASense()
 
 
 GET     /publications               controllers.SampleController.publications()
