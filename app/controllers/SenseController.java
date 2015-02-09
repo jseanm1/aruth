@@ -3,7 +3,10 @@
  */
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.extjwnl.data.Synset;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -13,6 +16,7 @@ import exceptions.AruthAPIException;
 import exceptions.ErrorCodes;
 
 import managers.SenseManager;
+import models.SenseList;
 import play.Logger;
 import play.Logger.ALogger;
 import play.libs.Json;
@@ -33,11 +37,19 @@ public class SenseController extends Controller{
 		logger.info("Senses requested for " + target);
 		
 		SenseManager senseManager = new SenseManager();
-		List<String> senses;
+		List<Synset> senses;
+		List<String> glosses = new ArrayList<String>();
+		List<Long> offsets = new ArrayList<Long>();
 		
 		try {
 			senses = senseManager.getAllSenses(target);
-			JsonNode result = Json.toJson(senses);
+			
+			for (Synset s : senses) {
+				glosses.add(s.getGloss());
+				offsets.add(s.getOffset());
+			}
+			
+			JsonNode result = Json.toJson(new SenseList(glosses, offsets));
 			
 			return ok(result);
 			
@@ -80,14 +92,21 @@ public class SenseController extends Controller{
 			return badRequest("one or more parameters missing");
 		}
 		logger.info("Senses requested for " + target);
-		
-		
+				
 		SenseManager senseManager = new SenseManager();
-		List<String> senses;
+		List<Synset> senses;
+		List<String> glosses = new ArrayList<String>();
+		List<Long> offsets = new ArrayList<Long>();
 		
 		try {
 			senses = senseManager.getAllSenses(target);
-			JsonNode result = Json.toJson(senses);
+			
+			for (Synset s : senses) {
+				glosses.add(s.getGloss());
+				offsets.add(s.getOffset());
+			}
+			
+			JsonNode result = Json.toJson(new SenseList(glosses, offsets));
 			
 			return ok(result);
 			

@@ -25,5 +25,7 @@ public class ErrorCodes {
 	public final static String WORD_NOT_FOUND = "100001";
 	
 	public final static String SENSE_NOT_FOUND = "100002";
+	
+	public final static String SENSE_OFFSET_MISMATCH = "200001";
 
 }
