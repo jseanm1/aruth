@@ -53,10 +53,10 @@ public class OptimizedLeskV1 {
 			return 0;
 		}
 		// same as Simplified Lesk V1.0
-		float primaryCount[] = getPrimaryCount();
+		float primaryCount[] = getPrimaryCount(target);
 		
 		// new overlap count (secondary) for optimization
-		float secondaryCount[] = getSecondaryCount();	
+		float secondaryCount[] = getSecondaryCount(target);	
 		
 		float finalCount[] = new float[size];
 		
@@ -76,7 +76,7 @@ public class OptimizedLeskV1 {
 		return maxIndex;
 	}
 	
-	private float[] getPrimaryCount () {
+	private float[] getPrimaryCount (String target) {
 		// Same implementation from SimplifiedLeskV1		
 		float primaryCount[] = new float[size];
 		
@@ -86,7 +86,7 @@ public class OptimizedLeskV1 {
 
 		for (int i = 0; i < size; i++) {
 			for (String word : pGlosses.get(i).split(" ")) {
-				if (pContext.contains(word)) {
+				if (pContext.contains(word) && !word.equals(target)) {
 					primaryCount[i]++;
 				}
 			}
@@ -95,7 +95,7 @@ public class OptimizedLeskV1 {
 		return primaryCount;
 	}
 	
-	private float[] getSecondaryCount() {
+	private float[] getSecondaryCount(String target) {
 		// get parent and children senses and get the secondary overlapping count		
 		float secondaryCount[] = new float[size];
 		
@@ -105,19 +105,18 @@ public class OptimizedLeskV1 {
 
 		for (int i = 0; i < size; i++) {
 			for (String word : parentGlosses.get(i).split(" ")) {
-				if (pContext.contains(word)) {
+				if (pContext.contains(word) && !word.equals(target)) {
 					secondaryCount[i]++;
 				}
 			}
 			
 			for (String word : childGlosses.get(i).split(" ")) {
-				if (pContext.contains(word)) {
+				if (pContext.contains(word) && !word.equals(target)) {
 					secondaryCount[i]++;
 				}
 			}
-		}
-
-		
+		}	
 		return secondaryCount;
+		
 	}
 }
