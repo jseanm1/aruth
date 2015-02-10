@@ -31,7 +31,7 @@
 
 .member-div{
 	padding-top:2%;
-	background-color:yellow;
+	//background-color:yellow;
 	height : 150px;
 }
 
@@ -41,7 +41,7 @@
 }
 .contact-us-table td{ 
 	height : 150px;
-	background-color: #01DFD7;
+	//background-color: #01DFD7;
 }
 .separator-contact-us{
 	padding-top:10%;
@@ -50,7 +50,7 @@
 }
 .links-div{
 	width:100%;
-	background-color:black; 
+	//background-color:black; 
 }
 .box-social{
 	width : 30px;
@@ -63,7 +63,10 @@
         width: 500px;
         height: 400px;
       }
-
+.level-one-title{
+	font-size: 17px;
+	color : #0B614B;
+}
 </style>
 
 
@@ -71,12 +74,19 @@
 	<table class="contact-us-table">
 		<tr>
 			<td>
-				<div class="member-div">Address:<br> University of Moratuwa <br> Moratuwa<br> SriLanka </div>
+				<div class="member-div">
+					<span class="level-one-title">Address:</span></br></br> 
+					<span>Department of Computer Science & Engineering, </span></br>
+					<span>University of Moratuwa, </span></br> 
+					<span>Moratuwa,</span></br> 
+					<span>Sri Lanka</span> 
+				</div>
 				<div class = "separator"></div>
-				<div style="margin-top:5px;"><span class="pro-mail-sup">swsd@@cse.mrt.ac.lk</span></div>
+				<div style="margin-top:5px;"><span class="level-one-title">Email :</span></br></br>
+				<span class="pro-mail-sup">swsd@@cse.mrt.ac.lk</span></div>
 				<div class = "separator"></div>
-				<div class="member-div">Telephone no:1111111111</div>
-				<div class="links-div">
+				<div class="member-div"></div>
+				<!-- <div class="links-div">
 								<table>
 									<tr>
 										<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/facebook.png")" alt="" /></a></td>
@@ -86,12 +96,12 @@
 										<td class="social-pic"><a href="http://www.cse.mrt.ac.lk/"><img class = "box-social" src="@routes.Assets.at("images/social/skype.png")" alt="" /></a></td>
 									</tr>
 								</table>
-							</div>
+				</div> -->
 			
 			</td>
 			<td>
 				<!--  <div class="map" align= "right"><iframe width="500" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Silicon+Valley,+United+States&aq=3&oq=sillicon+&sll=15.794298,105.910455&sspn=28.809181,53.569336&ie=UTF8&hq=&hnear=Silicon+Valley&ll=6.7964,79.9008&spn=0.04693,0.104628&t=m&z=14&iwloc=A&output=embed"></iframe></div>--> 
-				<div id="googleMap" style="width:500px;height:380px;float:right;"></div>
+				<div id="googleMap" style="width:700px;height:380px;float:right;"></div>
 			</td>
 		</tr>	
 	</table>
