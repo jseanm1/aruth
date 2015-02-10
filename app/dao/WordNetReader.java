@@ -64,17 +64,28 @@ public class WordNetReader {
 	 */
 	public static Synset getSynset (long offset) throws AruthAPIException {
 		Dictionary dictionary = getDictionary();
-		
+		Synset synset = null;
 		try {
-			Synset synset  = dictionary.getSynsetAt(POS.NOUN, offset);
+			synset  = dictionary.getSynsetAt(POS.NOUN, offset);
 			
-			return synset;
 		} catch (JWNLException e) {
+			
+			String errorMessage = "Exception occured trying to read WordNet " + e.getLocalizedMessage();
+			logger.warn(errorMessage);
+			
+			throw new AruthAPIException(ErrorCodes.CANNOT_READ_FILE, errorMessage, null);
+		}	
+		
+		if (synset == null) {
+			
 			String errorMessage = "Failed to retrieve synset " + offset;
 			logger.warn(errorMessage);
 			
 			throw new AruthAPIException(ErrorCodes.SENSE_NOT_FOUND, errorMessage, null);
-		}		
+		}
+		
+		return synset;
+		
 	}
 	
 	/*

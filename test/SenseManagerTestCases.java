@@ -26,6 +26,7 @@ public class SenseManagerTestCases {
 	public static void prepare () {
 		senseManager = new SenseManager();
 	}
+	
 	/*
 	 * Tests if SenseManager.getAllSenses is working properly
 	 */

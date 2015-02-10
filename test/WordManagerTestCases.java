@@ -3,15 +3,11 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import managers.WordManager;
-import net.sf.extjwnl.data.Synset;
-import net.sf.extjwnl.data.Word;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import exceptions.AruthAPIException;
-import exceptions.ErrorCodes;
-
 
 public class WordManagerTestCases {
 
