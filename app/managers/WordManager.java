@@ -25,8 +25,10 @@ public class WordManager {
 	 */
 	public List<String> getAllWordsForASense (long offset) throws AruthAPIException {
 		logger.info("All words for sense " + offset + " requested");
+		System.out.println("All words for sense " + offset + " requested");
 		
 		List<Word> words = getAllNounsForASense(offset);
+		
 		List<String> wordList = new ArrayList<String>();
 		
 		for (Word w : words) {
@@ -37,6 +39,7 @@ public class WordManager {
 	}
 	
 	private List<Word> getAllNounsForASense (long offset) throws AruthAPIException {
+		
 		Synset synset = WordNetReader.getSynset(offset);
 		
 		List<Word> words = synset.getWords();
