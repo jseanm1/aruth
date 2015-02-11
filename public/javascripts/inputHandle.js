@@ -1,3 +1,7 @@
+/*
+ *  tryExecute function is the first function to call. Inside it the validations happen and then call the relevant functions.
+ */
+
 function tryExecute(){
 	if(validateInput()){
 		$("#error-bar-home").hide();
@@ -10,8 +14,11 @@ function tryExecute(){
 	}
 }
 
-function validateInput(){
-	
+/*
+ * validateInput function is used to validate the user input interaction
+ */
+
+function validateInput(){	
 	var context = $("#context").val().trim();
 	var word = $("#target").val().trim();
 	var status=true;
@@ -50,13 +57,12 @@ function submitInput(){
 		 //dataType: 'html',   // use this if the response type is html	 
 		 processData: false,
 		 success:  function( data){
-			 		console.log(data); // to print response data to the console
-			 		$('#offSet').val("gf...");
-			 		/*var output;			 		
-			 		for (var property in data) {
-			 			  output = property + ' : ' + data[property]+'; ';
-			 		}
-			 		alert(output);*/
+				 		console.log(data); // to print response data to the console
+				 		/*var output;			 		
+				 		for (var property in data) {
+				 			  output = property + ' : ' + data[property]+'; ';
+				 		}
+				 		alert(output);*/
 			 			
 						//$('#result').html( data ); 
 			 			var res = data["sense"].split("|");
@@ -82,6 +88,10 @@ function submitInput(){
 		 
    }); 
 }
+
+/*
+ *  to get all the senses of a word 
+ */
 
 function getAllSenses(){
 	//get the user input data from the view using jQuery
@@ -122,6 +132,9 @@ function getAllSenses(){
    }); 
 }
 
+/*
+ * to get all words which has the same meaning as the target word.  
+ */
 
 function getAllWords(){
 	//get the user input data from the view using jQuery
