@@ -15,8 +15,8 @@ body {
 	 
 }
 #error-bar-home{
-		display: none;	
-		color:red;
+	display: none;	
+	color:red;
 }
 
 .home-search-input-error-bar{ 
@@ -34,21 +34,21 @@ body {
 }
  
 .input-word{
-			background-color: #EEE;
-			border-radius: 8px;
-			border: solid 1px #EEE;
-			margin-bottom: 15px;
-			width: 100% !important;
-			height: 120px;
-			font-size: x-large;
+	background-color: #EEE;
+	border-radius: 8px;
+	border: solid 1px #EEE;
+	margin-bottom: 15px;
+	width: 100% !important;
+	height: 120px;
+	font-size: x-large;
 }
 .target-word{
-			background-color: #EEE;
-			border-radius: 8px;
-			border: solid 1px #EEE;
-			width: 50% !important;
-			//margin-left : 5%;
-			height: 54px; 
+	background-color: #EEE;
+	border-radius: 8px;
+	border: solid 1px #EEE;
+	width: 50% !important;
+	//margin-left : 5%;
+	height: 54px; 
 }
 #result{
 	display: none;	
@@ -68,42 +68,42 @@ body {
 }
 
 .result-sense{
-			background-color: #EEE;
-			border-radius: 8px;
-			border: solid 1px #EEE;
-			margin-bottom: 15px;
-			width: 100% !important;
-			height: 80px;			
-			font-size: x-large;
+	background-color: #EEE;
+	border-radius: 8px;
+	border: solid 1px #EEE;
+	margin-bottom: 15px;
+	width: 100% !important;
+	height: 80px;			
+	font-size: x-large;
 }		
 .submit-wrapper BUTTON{
-			height: 54px;
-			width: 80%;
-			float: right;
-			/*
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0; */
-			text-transform: uppercase;
+	height: 54px;
+	width: 80%;
+	float: right;
+	/*
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0; */
+	text-transform: uppercase;
 }
 .input-box{
-			//margin-top: 10%;
-			margin-left : 10%;
-			margin-right: 10%;
-			//background-color : yellow;
+	//margin-top: 10%;
+	margin-left : 10%;
+	margin-right: 10%;
+	//background-color : yellow;
 }
 .input-box table{
-			width : 100%;
+	width : 100%;
 }
 .text-wrapper{
-			//margin-left : 10%;
+	//margin-left : 10%;
 }
 .result-wrapper{
-			//margin-left : 10%;
-			border-top: solid 1px #DFDFDF;	
-			padding-top:2%;
+	//margin-left : 10%;
+	border-top: solid 1px #DFDFDF;	
+	padding-top:2%;
 }
 #other-words-list{
-	  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .result-topic{
@@ -112,22 +112,22 @@ body {
 }
 		
 #aruth-logo A{
-			text-indent: -999px;
-			overflow: hidden;
-			width: 400px;
-			height: 150px;
-			display: block;
-			background: url('../images/aruth-logo.png');
-			background-image: url('../images/aruth-logo.png');
-			background-repeat: no-repeat;
-			background-size: contain;
-			max-width: 100%;
-			//margin-left : 10%;
+	text-indent: -999px;
+	overflow: hidden;
+	width: 400px;
+	height: 150px;
+	display: block;
+	background: url('../images/aruth-logo.png');
+	background-image: url('../images/aruth-logo.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	max-width: 100%;
+	//margin-left : 10%;
 }
  
 #aruth-logo A:hover{ 
-			background: url('../images/aruth-logo-glow.png');
-			background-image: url('../images/aruth-logo-glow.png'); 
+	background: url('../images/aruth-logo-glow.png');
+	background-image: url('../images/aruth-logo-glow.png'); 
 }	
 #description{	
 	margin-left: 20%;
@@ -153,16 +153,16 @@ body {
   	position: absolute;
 }
 #uom-logo A{
-			text-indent: -999px;
-			overflow: hidden;
-			width: 100px;
-			height: 100px;
-			display: block;
-			background: url('../images/uom-logo.png');
-			background-image: url('../images/uom-logo.png');
-			background-repeat: no-repeat;
-			background-size: contain;			
-			margin-left : 10%; 			
+	text-indent: -999px;
+	overflow: hidden;
+	width: 100px;
+	height: 100px;
+	display: block;
+	background: url('../images/uom-logo.png');
+	background-image: url('../images/uom-logo.png');
+	background-repeat: no-repeat;
+	background-size: contain;			
+	margin-left : 10%; 			
 }
 
 #cse-logo{
@@ -173,17 +173,17 @@ body {
 }
 		
 #cse-logo A{
-			text-indent: -999px;
-			overflow: hidden;
-			width: 100px;
-			min-height: 75px; 
-			display: block;
-			background: url('../images/cse-logo.jpg');
-			background-image: url('../images/cse-logo.jpg');
-			background-repeat: no-repeat;
-			background-size: contain;			
-			margin-left : 10%; 
-			display: block;  			
+	text-indent: -999px;
+	overflow: hidden;
+	width: 100px;
+	min-height: 75px; 
+	display: block;
+	background: url('../images/cse-logo.jpg');
+	background-image: url('../images/cse-logo.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;			
+	margin-left : 10%; 
+	display: block;  			
 }	
 
 
@@ -191,14 +191,14 @@ body {
 	padding-top: 25%;
 }
 .search-btn{
-			border-radius : 10px;
-			background-color : #13a89e;
-			border-color : transparent;
-			color : white;
-			outline:0; 
+	border-radius : 10px;
+	background-color : #13a89e;
+	border-color : transparent;
+	color : white;
+	outline:0; 
 }
 #mySubmit:hover{ 
-			background-color : #088A85; 
+	background-color : #088A85; 
 }
 
 #super-container{ 
@@ -243,11 +243,11 @@ html, body {
 
 
 .fancybox-custom .fancybox-skin {
-			box-shadow: 0 0 50px #222;
+	box-shadow: 0 0 50px #222;
 }
 		
 .box-album{
-			width : 200px;
-			height : 150px;
+	width : 200px;
+	height : 150px;
 }
  
