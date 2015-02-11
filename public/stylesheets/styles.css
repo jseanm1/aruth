@@ -11,8 +11,9 @@
 
 body {
 		/* background-color: white; */
-	 	/*  background-image: url("/assets/images/favicon.png");   */
-	 
+	/* background-image: url("/assets/images/alph.png"); 
+	background-repeat: no-repeat;
+	background-size: contain; */
 }
 #error-bar-home{
 	display: none;	
