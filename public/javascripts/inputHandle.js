@@ -25,15 +25,15 @@ function validateInput(){
 	$("#error-bar-home").empty();
 	if(context == "" && word == ""){
 		$("#error-bar-home").show();
-		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය සහ එය අඩංගු වගන්තිය හෝ පරිච්ඡේදය  ඇතුලත් කරන්න</span>");
+		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය සහ එය අඩංගු වගන්තිය හෝ පරිච්ඡේදය  ඇතුලත් කරන්න / Please insert the relavent context and the target word</span>");
 		status = false;
 	} else if(word == ""){
 		$("#error-bar-home").show();
-		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය ඇතුලත් කරන්න</span>");
+		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය ඇතුලත් කරන්න / Please insert the relavent target word</span>");
 		status = false;
 	} else if(context == ""){
 		$("#error-bar-home").show();
-		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය අඩංගු වගන්තිය හෝ පරිච්ඡේදය  ඇතුලත් කරන්න</span>");
+		$("#error-bar-home").empty().append("<span>කරුණාකර අරුත විමසීමට අවශ්‍ය වචනය අඩංගු වගන්තිය හෝ පරිච්ඡේදය  ඇතුලත් කරන්න / Please insert the relavent context</span>");
 		status = false;
 	} 
 	return status;
