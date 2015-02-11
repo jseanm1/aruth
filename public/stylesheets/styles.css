@@ -15,6 +15,16 @@ body {
 	background-repeat: no-repeat;
 	background-size: contain; */
 }
+.meaning-style{
+	margin : 10px 0 10px 0;	
+	border-radius : 8px;	
+}
+.meaning-style-color{
+	margin : 10px 0 10px 0;	
+	border-radius : 8px;
+	background-color : #F5ECCE;
+}
+
 #error-bar-home{
 	display: none;	
 	color:red;

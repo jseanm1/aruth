@@ -52,6 +52,7 @@ function submitInput(){
 		 url: '/tryDisambiguatePost', 
 		 data: JSON.stringify({"context": context,"target": word}), 
 		 type: 'post', 
+		 async : false,
 		 contentType: 'application/json',
 		 dataType: 'json', 		// use this if the response type is Json	 
 		 //dataType: 'html',   // use this if the response type is html	 
@@ -114,10 +115,16 @@ function getAllSenses(){
 			 		$("#word-senses").empty();
 			 		var senses = data['senses'];
 			 		var offSets = data['offsets'];
+			 		var selected = $('#offSet').val();
+			 		
 			 		for (var i = 0; i < senses.length; i++) { 
 			 			console.log(senses[i]);
 			 			var res = senses[i].split("|"); 
-			 			$("#word-senses").append("<div id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
+			 			if(selected != offSets[i]){
+			 				$("#word-senses").append("<div class='meaning-style' id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
+			 			}else{
+			 				$("#word-senses").append("<div class='meaning-style-color' id='"+offSets[i]+"'><div class='meaning-of-a-sense'>"+ res[0] +"</div>" + "<div class='example-of-a-sense'>"+ res[1].replace(/"/g, "") +"</div></div>");
+			 			}
 			 		}  
 		 },	 		 
 		 error: function(data){ 			
