@@ -12,7 +12,7 @@ import exceptions.AruthAPIException;
 public class WordManagerTestCases {
 
 	
-	private final long OFFSET =41311;
+	private final long OFFSET =64861;
 	private final long WRONG_OFFSET=678495;
 	
 	private static WordManager wordManager;
