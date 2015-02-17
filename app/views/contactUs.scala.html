@@ -1,9 +1,11 @@
 
 
 <script>
- 	$(document).ready(function() { 
-			initialize(); 
-	});
+ 	$(document).ready(function() {  
+ 			initialize(); 	 
+ 			twttr.widgets.load(); 
+	}); 
+ 	
 	function initialize() {
 		var myLatlng = new google.maps.LatLng(6.796877,79.901778);
 		var mapProp = {
@@ -20,7 +22,10 @@
 				title:"UoM"
 		});	
 	} 
+	
+	/* !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); */
 </script>
+<!-- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
 <style>
 
 .contact-us-div{
@@ -41,6 +46,7 @@
 }
 .contact-us-table td{ 
 	height : 150px;
+	width : 33%;
 	//background-color: #01DFD7;
 }
 .separator-contact-us{
@@ -73,7 +79,7 @@
 <div class="contact-us-div">
 	<table class="contact-us-table">
 		<tr>
-			<td>
+			<td colspan="1">
 				<div class="member-div">
 					<span class="level-one-title">Address:</span></br></br> 
 					<span>Department of Computer Science & Engineering, </span></br>
@@ -99,9 +105,14 @@
 				</div> -->
 			
 			</td>
-			<td>
+			<td  colspan="1">
 				<!--  <div class="map" align= "right"><iframe width="500" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Silicon+Valley,+United+States&aq=3&oq=sillicon+&sll=15.794298,105.910455&sspn=28.809181,53.569336&ie=UTF8&hq=&hnear=Silicon+Valley&ll=6.7964,79.9008&spn=0.04693,0.104628&t=m&z=14&iwloc=A&output=embed"></iframe></div>--> 
-				<div id="googleMap" style="width:700px;height:380px;float:right;"></div>
+				<div id="googleMap" style="width:400px;height:380px;float:right;"></div>
+			</td>
+			<td  colspan="1">
+				<div id= "twitter_div">
+					<a class="twitter-timeline" href="https://twitter.com//aruth_swsd" data-widget-id="566897871253807104">Tweets by @@aruth_swsd</a>
+				</div>
 			</td>
 		</tr>	
 	</table>
