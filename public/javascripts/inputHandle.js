@@ -3,6 +3,9 @@
  */
 
 function tryExecute(){
+	$( "#result" ).hide();
+	$( "#all-senses" ).hide();
+	$( "#result-other-words" ).hide(); 
 	if(validateInput()){
 		$("#error-bar-home").hide();
 		submitInput();
@@ -94,7 +97,7 @@ function submitInput(){
  *  to get all the senses of a word 
  */
 
-function getAllSenses(){
+function getAllSenses(){	
 	//get the user input data from the view using jQuery
 	var context = $("#context").val();
 	var word = $("#target").val();
