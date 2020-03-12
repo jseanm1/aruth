@@ -1,4 +1,4 @@
-/*import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import managers.WSDManager;
@@ -33,7 +33,7 @@ public class WSDManagerTestCases {
 	/*
 	 * Test if WSDManager.getSense method is working properly
 	 */	
-	/*@Test
+	@Test
 	public void testGetSense1 () {
 		
 		try {
@@ -110,4 +110,3 @@ public class WSDManagerTestCases {
 	}
 	
 }
-*/

@@ -1,4 +1,4 @@
-/*import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class WordManagerTestCases {
 	/*
 	 * Tests if WordManager.getAllWordsForASense is working properly
 	 */
-	/*@Test
+	@Test
 	public void testGetAllWordsForASense1 () {
 		try {
 			System.out.println("Executing WordManager.getAllWordsForASense1");
@@ -67,4 +67,3 @@ public class WordManagerTestCases {
 		}
 	}
 }
-*/
